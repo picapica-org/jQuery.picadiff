@@ -21,7 +21,8 @@ var CompareView = Backbone.View.extend(
 	* and calls render()
 	*/
 	initialize : function(options){
-		//this.model.bind("change", this.render, this);
+		this.model.bind("change", this.render, this);
+
 
 		this.$el.empty().addClass("compareView");
 
