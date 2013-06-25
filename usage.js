@@ -8,7 +8,6 @@ var testtext3 = "Nach Recherchen der Süddeutschen Zeitung haben CDU-Kreise in H
 var testtext3s = "Nach Recherchen der »Süddeutschen Zeitung« haben CDU-Kreise in Hannover seit 2006 das Gerücht gestreut, Bettina Wulff habe früher angeblich im Rotlichtmilieu gearbeitet. Die Denunziation sollte offenbar vor allem Christian Wulff treffen, der damals noch CDU-Ministerpräsident in Niedersachsen war. Er hatte in der Partei demnach einige einflussreiche Feinde und auch außerhalb der Partei etliche Gegner.";
 
 $(document).ready(function(){
-    widget = new Widget();
-    $("#reusecontent").append(widget.compare(testtext1, testtext1s));
-    //$("#reusecontent").append(widget.compare(testtext2, testtext2s));
+    $("#reusecontent").append(Widget.compare(testtext1, testtext1s));
+    //$("#reusecontent").append(Widget.compare(testtext2, testtext2s));
 });

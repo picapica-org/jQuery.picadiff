@@ -2,7 +2,7 @@ function Widget(){
 
 }
 
-Widget.prototype.compare = function(source, suspicious){
+Widget.compare = function(source, suspicious){
     reference = new Reference();
     reference.set("TextFundstelle" , source);
     reference.set("TextDissertation", suspicious);
