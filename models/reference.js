@@ -9,7 +9,7 @@ var Reference = Backbone.Model.extend(
 		active 		: false,
 		open 		: false,
 		comparison	: true,
-		wrap 		: true,
+		wrap 		: false,
 		alignment	: true,
 		linelength 	: 42,
 	},

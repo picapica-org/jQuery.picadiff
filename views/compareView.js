@@ -3,7 +3,9 @@
 /**
  * @class  View that holds and controls the comparison presentation of a representation.
 */
-var comparetemplate = "<div class='comparisoncontrol'><div class='controlButtons'><button class='over' >Überlagerung</button><button class='align'>Zeilenangleichung</button><button class='wrap'>Wortumbruch</button></div><div class='slidercontainer'><button class='slider_button_text'>Fundstelle</button><div class='slider'></div><button class='slider_button_source'>Quelle</button></div><div class='sliderstrictcontainer'><div class='strictslider'></div></div></div><div class='refcontainer'><div class='citation'><h5>Fundstelle:</h5><div class='content'></div></div><div class='separator'></div><div class='source'><h5>Quelle:</h5><div class='content'></div></div></div></div>";
+
+//var comparetemplate = "<div class='comparisoncontrol'><div class='controlButtons'><button class='over' >Überlagerung</button><button class='align'>Zeilenangleichung</button><button class='wrap'>Wortumbruch</button></div><div class='slidercontainer'><button class='slider_button_text'>Fundstelle</button><div class='slider'></div><button class='slider_button_source'>Quelle</button></div><div class='sliderstrictcontainer'><div class='strictslider'></div></div></div><div class='refcontainer'><div class='citation'><h5>Fundstelle:</h5><div class='content'></div></div><div class='separator'></div><div class='source'><h5>Quelle:</h5><div class='content'></div></div></div></div>";
+var comparetemplatewithoutcontrol = "<div class='refcontainer'><div class='citation'><h5>Fundstelle:</h5><div class='content'></div></div><div class='separator'></div><div class='source'><h5>Quelle:</h5><div class='content'></div></div></div></div>";
 var CompareView = Backbone.View.extend(
 
 /** @lends CompareView.prototype */{
@@ -29,7 +31,7 @@ var CompareView = Backbone.View.extend(
 
 		var templatestring = "";
 
-		var template = _.template(comparetemplate);
+		var template = _.template(comparetemplatewithoutcontrol);
 		this.$el.append(template);
 
 		this.$("button").button();
@@ -63,8 +65,9 @@ var CompareView = Backbone.View.extend(
 
         this.$(".source .content").html(sourcetext);
         this.$(".citation .content").html(disstext);
-
-        //comparison
+	},
+	renderControls : function(){
+		//comparison
         if(reference.get("comparison")){
         	this.$(".source").removeClass("overlayed")
         		.addClass("compareview")
@@ -93,7 +96,6 @@ var CompareView = Backbone.View.extend(
 		//wrap
 		if(this.model.get("wrap")) this.$(".wrap").addClass("active");
 		else this.$(".wrap").removeClass("active");
-
 
 	},
 	/**
