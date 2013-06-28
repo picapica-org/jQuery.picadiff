@@ -3,6 +3,14 @@ function Widget(){
 }
 
 Widget.compare = function(leftTitle, left, rightTitle, right){
+	WebFont.load({
+	    google: {
+	      families: ['Source Code Pro']
+	    }
+	  });
+
+
+
     reference = new Reference();
     reference.set("leftTitle", leftTitle)
     reference.set("left", left);
