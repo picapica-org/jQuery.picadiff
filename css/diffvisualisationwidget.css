@@ -1,7 +1,7 @@
 @charset "UTF-8";
 
 .compareView {
-  width: 800px;
+  overflow: hidden;
   background-color: #f5f5f5;
 
   padding-top: 0 !important; }
