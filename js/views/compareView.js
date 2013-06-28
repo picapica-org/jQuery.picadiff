@@ -20,8 +20,7 @@ var CompareView = Backbone.View.extend(
 	initialize : function(options){
 		this.model.bind("change", this.render, this);
 
-
-		this.$el.empty().addClass("compareView");
+		this.$el.empty().addClass("diffVisualisation");
 
 		var templateData = {
 			leftTitle 		: this.model.get("leftTitle"),

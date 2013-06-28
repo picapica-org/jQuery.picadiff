@@ -1,28 +1,27 @@
-function Widget(){
+;(function ( $ ) {
+	var applyDiffWidget = function(options){
+		var $this = $(this);
 
-}
+		var referenceData = {
+			leftTitle 	: $this.find(".left h5").text(),
+			left 		: $this.find(".left .content").text(),
+			rightTitle 	: $this.find(".right h5").text(),
+			right 		: $this.find(".right .content").text(),
+		}
 
-Widget.compare = function(leftTitle, left, rightTitle, right){
-	WebFont.load({
-	    google: {
-	      families: ['Source Code Pro']
-	    }
-	  });
+		var reference = new Reference(referenceData);
+		var compareView = new CompareView({
+			model   : reference,
+			el 		: this,
+		});
+	}
 
+	$.fn.applyDiffWidget = function(options){
+		WebFont.load({google: {families: ['Source Code Pro']}});
+		return this.each(function(){
+			applyDiffWidget.call(this, options);
+		});
+	}
 
-
-    reference = new Reference();
-    reference.set("leftTitle", leftTitle)
-    reference.set("left", left);
-    reference.set("rightTitle", rightTitle);
-    reference.set("right" , right);    
-    reference.dmp = new DiffHandler();
-    reference.set("linelength", 40);
-
-    var compareview = new CompareView({
-        model   : reference
-    });
-
-    return compareview.$el;
-};
+})( jQuery );
 

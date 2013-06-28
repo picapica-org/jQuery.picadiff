@@ -11,7 +11,8 @@ var Reference = Backbone.Model.extend(
 		comparison	: true,
 		wrap 		: false,
 		alignment	: true,
-		linelength 	: 42,
+		linelength 	: 40,
+		dmp 		: new DiffHandler(),
 	},
 
 	/**
@@ -25,6 +26,7 @@ var Reference = Backbone.Model.extend(
 			
 			var left = this.get("left");
 			var right = this.get("right");
+			var dmp = this.get("dmp");
 			this.diff = dmp.diff_wordbased(left, right,false);
 			//dmp.diff_cleanupSemantic(this.diff);
 		}
@@ -38,7 +40,7 @@ var Reference = Backbone.Model.extend(
 
 		if(!this.data_line){
 			var diff = this.getDiff();
-			var dmp = this.dmp;
+			var dmp = this.get("dmp");
 			this.data_line =  dmp.data_line(diff);
 		}
 		return this.data_line;
@@ -51,7 +53,7 @@ var Reference = Backbone.Model.extend(
 
 		if(!this.diffhtml){
 			var diff = this.getDiff();
-			var dmp = this.dmp;
+			var dmp = this.get("dmp");
 			this.diffhtml =  dmp.diff_html(diff);
 		}
 
@@ -64,7 +66,7 @@ var Reference = Backbone.Model.extend(
 	getPrettyHTML : function(){
 		if(!this.prettyhtml){
 			var diff = this.getDiff();
-			var dmp = this.dmp;
+			var dmp = this.get("dmp");
 			var prettyhtml = dmp.diff_prettyHtml(diff);
 			this.prettyhtml = html_entity_decode (prettyhtml);
 		}
@@ -78,7 +80,7 @@ var Reference = Backbone.Model.extend(
 	getEqualline : function(intervalLength){
 		if(!this.equal_line){
 			var diff = this.getDiff();
-			var dmp = this.dmp;
+			var dmp = this.get("dmp");
 			this.equal_line =  dmp.equal_line(diff, intervalLength);
 		}
 		return this.equal_line;
@@ -90,7 +92,7 @@ var Reference = Backbone.Model.extend(
 	 */
 	getHtmlTexts : function(maxchars){
 		var diff = this.getDiff();
-		var dmp = this.dmp;
+		var dmp = this.get("dmp");
 		return dmp.alligned_texts(diff, maxchars);
 	},
 	/**
@@ -100,7 +102,7 @@ var Reference = Backbone.Model.extend(
 	 */
 	getHtmlTextStrict : function(maxchars){
 		var diff = this.getDiff();
-		var dmp = this.dmp;
+		var dmp = this.get("dmp");
 		return dmp.alligned_texts_strict(diff, maxchars);
 
 	},

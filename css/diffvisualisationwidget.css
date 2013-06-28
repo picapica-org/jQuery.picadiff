@@ -1,38 +1,38 @@
 @charset "UTF-8";
 
-.compareView {
+.diffVisualisation {
   overflow: hidden;
   background-color: #f5f5f5;
 
   padding-top: 0 !important; }
-  .compareView .comparisoncontrol {
+  .diffVisualisation .comparisoncontrol {
     height: 40px;
     width: 100%; }
-    .compareView .comparisoncontrol .controlButtons {
+    .diffVisualisation .comparisoncontrol .controlButtons {
       float: right;
       margin-right: 10px;
       border: 1px solid #d3d3d3;
       border-top: 0;
       border-bottom-left-radius: 5px;
       border-bottom-right-radius: 5px; }
-      .compareView .comparisoncontrol .controlButtons button {
+      .diffVisualisation .comparisoncontrol .controlButtons button {
         font-size: 11px;
         float: left;
         margin: 0;
         border-radius: 0;
         border: 0; }
-        .compareView .comparisoncontrol .controlButtons button.active {
+        .diffVisualisation .comparisoncontrol .controlButtons button.active {
           background-color: white; }
-        .compareView .comparisoncontrol .controlButtons button.over {
+        .diffVisualisation .comparisoncontrol .controlButtons button.over {
           border-right: 0;
           border-bottom-left-radius: 4px; }
-        .compareView .comparisoncontrol .controlButtons button.align {
+        .diffVisualisation .comparisoncontrol .controlButtons button.align {
           border-right: 1px solid grey;
           border-left: 1px solid grey; }
-        .compareView .comparisoncontrol .controlButtons button.wrap {
+        .diffVisualisation .comparisoncontrol .controlButtons button.wrap {
           border-left: 0;
           border-bottom-right-radius: 4px; }
-  .compareView .right, .compareView .left {
+  .diffVisualisation .right, .diffVisualisation .left {
     
     width: 45%;
     padding: 10px 2.5%;
@@ -42,27 +42,27 @@
     font-size: 13px;
     /*max-height:400px;*/ }
 
-    .compareView .right{
+    .diffVisualisation .right{
         margin-left: 50%;
     }
-    .compareView .left{
+    .diffVisualisation .left{
         float: left;
     }
 
-    .compareView .right h5, .compareView .left h5 {
+    .diffVisualisation .right h5, .diffVisualisation .left h5 {
       color: #000;
       margin: 0 0 10px 0; }
-    .compareView .right .content, .compareView .left .content {
+    .diffVisualisation .right .content, .diffVisualisation .left .content {
       width: 100%;
       float: left; }
-    .compareView .right .equal, .compareView .left .equal {
+    .diffVisualisation .right .equal, .diffVisualisation .left .equal {
       /*color: white;*/
       background-color: #a8d975;
       /*font-weight: bold;*/
       /*border-bottom: 1px solid;*/ }
-    .compareView .right .light, .compareView .left .light {
+    .diffVisualisation .right .light, .diffVisualisation .left .light {
       background-color: #aaa; }
-    .compareView .right .insertion, .compareView .left .insertion {
+    .diffVisualisation .right .insertion, .diffVisualisation .left .insertion {
       /*color:#c61818;*/ }
 
 .blendingView .diffcontent {
@@ -84,11 +84,6 @@
   .blendingView .edit .insertion {
     /* Dissertation Text */
     background-color: white; }
-
-body, div, ul, ol, li, h1, h2, h3, h4, p, th, td, form {
-  margin: 0;
-  padding: 0;
-  -webkit-font-smoothing: antialiased; }
 
 
 /* custom jquery ui icons */
