@@ -20,27 +20,7 @@ var CompareView = Backbone.View.extend(
 	initialize : function(options){
 		this.model.bind("change", this.render, this);
 
-		this.$el.empty().addClass("diffVisualisation");
-
-		var templateData = {
-			leftTitle 		: this.model.get("leftTitle"),
-			rightTitle		: this.model.get("rightTitle")
-		}
-
-		var templatestring = 
-			"<div class='refcontainer'>"+
-				"<div class='left'>"+
-					"<h5><%= leftTitle %></h5>"+
-					"<div class='content'></div>"+
-				"</div>"+
-				"<div class='right'>"+
-					"<h5><%= rightTitle %></h5>"+
-					"<div class='content'></div>"+
-				"</div>"+
-			"</div>";
-		var template = _.template(templatestring, templateData);
-		this.$el.append(template);
-
+		this.$el.addClass("diffVisualisation");
 		this.render();
 
 	},
@@ -52,6 +32,11 @@ var CompareView = Backbone.View.extend(
 	render : function(){
 		var reference = this.model;
 		var linelength = reference.get("linelength");
+
+		var leftHeight = this.$(".left h5").height();
+		var rightHeight = this.$(".left h5").height();
+		var newHeight = Math.max(leftHeight, rightHeight);
+		this.$("h5").height(newHeight);
 
 		var html_texts;
 		if(reference.get("wrap"))
