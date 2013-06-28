@@ -41,7 +41,7 @@
     border-right: 1px solid #d3d3d3;
     border-color: #d3d3d3;
     cursor: ew-resize; }
-  .compareView .source, .compareView .citation {
+  .compareView .right, .compareView .left {
     width: 376px;
     float: left;
     overflow: auto;
@@ -49,22 +49,22 @@
     font-weight: 400;
     font-size: 13px;
     /*max-height:400px;*/ }
-    .compareView .source h5, .compareView .citation h5 {
+    .compareView .right h5, .compareView .left h5 {
       color: #000;
       margin: 0 0 5px 0; }
-    .compareView .source .content, .compareView .citation .content {
+    .compareView .right .content, .compareView .left .content {
       max-width: 350px;
       float: left; }
-    .compareView .source .equal, .compareView .citation .equal {
+    .compareView .right .equal, .compareView .left .equal {
       color: white;
       background-color: #666;
       /*font-weight: bold;*/
       /*border-bottom: 1px solid;*/ }
-    .compareView .source .light, .compareView .citation .light {
+    .compareView .right .light, .compareView .left .light {
       background-color: #aaa; }
-    .compareView .source .insertion, .compareView .citation .insertion {
+    .compareView .right .insertion, .compareView .left .insertion {
       /*color:#c61818;*/ }
-    .compareView .source .deletion, .compareView .citation .deletion {
+    .compareView .right .deletion, .compareView .left .deletion {
       color: #875c04; }
 
 .blendingView .diffcontent {

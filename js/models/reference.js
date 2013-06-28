@@ -13,13 +13,6 @@ var Reference = Backbone.Model.extend(
 		alignment	: true,
 		linelength 	: 42,
 	},
-	/**
-	 * Name of category
-	 * @return {String}
-	 */
-	getCategorie : function(){
-		return this.get("categorie") ||  "nocategory";
-	},
 
 	/**
 	 * Wordbased diff with
@@ -29,9 +22,10 @@ var Reference = Backbone.Model.extend(
 		//lazy loading diffs
 		if(!this.diff){
 			var dmp = this.dmp;
-			var source = this.get("source");
-			var suspicious = this.get("suspicious");
-			this.diff = dmp.diff_wordbased(source, suspicious,false);
+			
+			var left = this.get("left");
+			var right = this.get("right");
+			this.diff = dmp.diff_wordbased(left, right,false);
 			//dmp.diff_cleanupSemantic(this.diff);
 		}
 		return this.diff;

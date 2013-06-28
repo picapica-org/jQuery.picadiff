@@ -2,10 +2,12 @@ function Widget(){
 
 }
 
-Widget.compare = function(source, suspicious){
+Widget.compare = function(leftTitle, left, rightTitle, right){
     reference = new Reference();
-    reference.set("source" , source);
-    reference.set("suspicious", suspicious);
+    reference.set("leftTitle", leftTitle)
+    reference.set("left", left);
+    reference.set("rightTitle", rightTitle);
+    reference.set("right" , right);    
     reference.dmp = new DiffHandler();
     reference.set("linelength", 40);
 

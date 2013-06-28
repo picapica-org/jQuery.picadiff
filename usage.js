@@ -16,6 +16,6 @@ var textSpiegelOnline = "Hamburg — Bettina Wulff geht laut einem Pressebericht
 
 
 $(document).ready(function(){
-    $("#reusecontent").append(Widget.compare(textSueddeutsche, textSpiegelOnline));
+    $("#reusecontent").append(Widget.compare(titleSueddeutsche, textSueddeutsche, titleSpiegelOnline, textSpiegelOnline));
     //$("#reusecontent").append(Widget.compare(testtext2, testtext2s));
 });

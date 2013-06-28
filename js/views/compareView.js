@@ -5,7 +5,7 @@
 */
 
 //var comparetemplate = "<div class='comparisoncontrol'><div class='controlButtons'><button class='over' >Überlagerung</button><button class='align'>Zeilenangleichung</button><button class='wrap'>Wortumbruch</button></div><div class='slidercontainer'><button class='slider_button_text'>Fundstelle</button><div class='slider'></div><button class='slider_button_source'>Quelle</button></div><div class='sliderstrictcontainer'><div class='strictslider'></div></div></div><div class='refcontainer'><div class='citation'><h5>Fundstelle:</h5><div class='content'></div></div><div class='separator'></div><div class='source'><h5>Quelle:</h5><div class='content'></div></div></div></div>";
-var comparetemplatewithoutcontrol = "<div class='refcontainer'><div class='citation'><h5>Fundstelle:</h5><div class='content'></div></div><div class='separator'></div><div class='source'><h5>Quelle:</h5><div class='content'></div></div></div></div>";
+
 var CompareView = Backbone.View.extend(
 
 /** @lends CompareView.prototype */{
@@ -28,10 +28,23 @@ var CompareView = Backbone.View.extend(
 
 		this.$el.empty().addClass("compareView");
 
+		var templateData = {
+			leftTitle 		: this.model.get("leftTitle"),
+			rightTitle		: this.model.get("rightTitle")
+		}
 
-		var templatestring = "";
-
-		var template = _.template(comparetemplatewithoutcontrol);
+		var templatestring = 
+			"<div class='refcontainer'>"+
+				"<div class='left'>"+
+					"<h5><%= leftTitle %></h5>"+
+					"<div class='content'></div>"+
+				"</div>"+
+				"<div class='right'>"+
+					"<h5><%= rightTitle %></h5>"+
+					"<div class='content'></div>"+
+				"</div>"+
+			"</div>";
+		var template = _.template(templatestring, templateData);
 		this.$el.append(template);
 
 		//this.$("button").button();
@@ -60,44 +73,44 @@ var CompareView = Backbone.View.extend(
 		else
 			html_texts = reference.getHtmlTexts(linelength);
 
-		var sourcetext = html_texts.source_html;
-        var disstext = html_texts.diss_html;
+		var right = html_texts.source_html;
+        var left = html_texts.diss_html;
 
-        this.$(".source .content").html(sourcetext);
-        this.$(".citation .content").html(disstext);
+        this.$(".left .content").html(left);
+        this.$(".right .content").html(right);
 	},
-	renderControls : function(){
-		//comparison
-        if(reference.get("comparison")){
-        	this.$(".source").removeClass("overlayed")
-        		.addClass("compareview")
-        		.css('opacity', 1);
+	// renderControls : function(){
+	// 	//comparison
+ //        if(reference.get("comparison")){
+ //        	this.$(".right").removeClass("overlayed")
+ //        		.addClass("compareview")
+ //        		.css('opacity', 1);
 
-			this.$(".citation").css('opacity', 1);
-			this.$(".slidercontainer").hide();
-        }
-        //overlay
-        else{
-        	this.$(".source").removeClass("compareview")
-				.addClass("overlayed");
-			this.$(".slidercontainer").show();
-        }
+	// 		this.$(".suspicious").css('opacity', 1);
+	// 		this.$(".slidercontainer").hide();
+ //        }
+ //        //overlay
+ //        else{
+ //        	this.$(".right").removeClass("compareview")
+	// 			.addClass("overlayed");
+	// 		this.$(".slidercontainer").show();
+ //        }
 
 
-        //alignment
-        if(this.model.get("alignment")){
-			this.$(".align").addClass("active");
-			this.$(".source br, .citation br").show();
-		}else{
-			this.$(".align").removeClass("active");
-			this.$(".source br, .citation br").hide();
-		}
+ //        //alignment
+ //        if(this.model.get("alignment")){
+	// 		this.$(".align").addClass("active");
+	// 		this.$(".right br, .citation br").show();
+	// 	}else{
+	// 		this.$(".align").removeClass("active");
+	// 		this.$(".right br, .citation br").hide();
+	// 	}
 
-		//wrap
-		if(this.model.get("wrap")) this.$(".wrap").addClass("active");
-		else this.$(".wrap").removeClass("active");
+	// 	//wrap
+	// 	if(this.model.get("wrap")) this.$(".wrap").addClass("active");
+	// 	else this.$(".wrap").removeClass("active");
 
-	},
+	// },
 	/**
 	* Draws the slider for the overlay mode.
 	*/
