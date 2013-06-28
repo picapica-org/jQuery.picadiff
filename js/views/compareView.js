@@ -15,8 +15,8 @@ var CompareView = Backbone.View.extend(
 		"click .wrap"					: "switchWrap",
 		"mouseover .equal"				: "hoverEqual",
 		"mouseout .equal"				: "unhoverEqual",
-		"click .slider_button_text" 	: "showSliderText",
-		"click .slider_button_source"	: "showSliderSource"
+		// "click .slider_button_text" 	: "showSliderText",
+		// "click .slider_button_source"	: "showSliderSource"
 	},
 	/**
 	* Called on object construction. Binds events, assigns the data of the diff
@@ -34,15 +34,15 @@ var CompareView = Backbone.View.extend(
 		var template = _.template(comparetemplatewithoutcontrol);
 		this.$el.append(template);
 
-		this.$("button").button();
+		//this.$("button").button();
 		this.$(".align").addClass("active");
 
 		//this.$(".citation").addClass(this.model.getKategorie().toLowerCase());
 		this.$(".wrap").addClass("active");
 
 		this.render();
-		this.renderSlider();
-		this.renderCutSlider();
+		// this.renderSlider();
+		// this.renderCutSlider();
 
 	},
 	/**
@@ -101,63 +101,63 @@ var CompareView = Backbone.View.extend(
 	/**
 	* Draws the slider for the overlay mode.
 	*/
-	renderSlider : function(){
-		var self = this;
-		this.$(".slider").slider({
-			value : 50,
-			range: "min",
-			animate: true,
-			slide: function(event, ui){
-				opacity = (ui.value+1)/100;
-				if(opacity > 1)
-					opacity=1;
-				self.$(".source").css('opacity', 1-opacity);
-				self.$(".citation").css('opacity', opacity);
-			}
-		});
-	},
+	// renderSlider : function(){
+	// 	var self = this;
+	// 	this.$(".slider").slider({
+	// 		value : 50,
+	// 		range: "min",
+	// 		animate: true,
+	// 		slide: function(event, ui){
+	// 			opacity = (ui.value+1)/100;
+	// 			if(opacity > 1)
+	// 				opacity=1;
+	// 			self.$(".source").css('opacity', 1-opacity);
+	// 			self.$(".citation").css('opacity', opacity);
+	// 		}
+	// 	});
+	// },
 	/**
 	* Callback function of the source button in the Overlay slider. The source
 	* text is set to full opacity and the reference text is faded out.
 	*/
-	showSliderSource : function(){
-		this.$(".slider").slider('value', 100);
-		this.$(".citation").css('opacity', 0);
-		this.$(".source").css('opacity', 1);
-	},
+	// showSliderSource : function(){
+	// 	this.$(".slider").slider('value', 100);
+	// 	this.$(".citation").css('opacity', 0);
+	// 	this.$(".source").css('opacity', 1);
+	// },
 	/**
 	* Callback function of the reference button in the Overlay slider. The
 	* reference text is set to full opacity and the source text is faded out.
 	*/
-	showSliderText : function(){
-		this.$(".slider").slider('value', 0);
-		this.$(".citation").css('opacity', 1);
-		this.$(".source").css('opacity', 0);
-	},
+	// showSliderText : function(){
+	// 	this.$(".slider").slider('value', 0);
+	// 	this.$(".citation").css('opacity', 1);
+	// 	this.$(".source").css('opacity', 0);
+	// },
 	/**
 	* Draws and controlls the slider that separates the reference and source
 	* text and also sets the current linelength (in number of characters).
 	*/
-	renderCutSlider : function(){
-		var self = this;
+	// renderCutSlider : function(){
+	// 	var self = this;
 
-		var separator = this.$(".separator");
-		var height = this.$(".citation").height();
-		if(height === 0)
-			height = 100;
-		separator.height(height);
-		separator.draggable({
-			axis : "x",
-			drag : function(event, ui){
-				var length = (360 + ui.position.left)*42 / 360;
-				var newLinelength = Math.max(Math.ceil(length), 1);
-				self.$(".source").css("margin-left", ui.position.left);
-				self.model.set("linelength", newLinelength);
-				separator.height(self.$(".citation").height());
-			},
-			containment: this.$(".citation")
-		});
-	},
+	// 	var separator = this.$(".separator");
+	// 	var height = this.$(".citation").height();
+	// 	if(height === 0)
+	// 		height = 100;
+	// 	separator.height(height);
+	// 	separator.draggable({
+	// 		axis : "x",
+	// 		drag : function(event, ui){
+	// 			var length = (360 + ui.position.left)*42 / 360;
+	// 			var newLinelength = Math.max(Math.ceil(length), 1);
+	// 			self.$(".source").css("margin-left", ui.position.left);
+	// 			self.model.set("linelength", newLinelength);
+	// 			separator.height(self.$(".citation").height());
+	// 		},
+	// 		containment: this.$(".citation")
+	// 	});
+	// },
 	/**
 	* Callback of the button that controls the compare mode. The comparemode is
 	* toggled.

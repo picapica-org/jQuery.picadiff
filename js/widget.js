@@ -4,8 +4,8 @@ function Widget(){
 
 Widget.compare = function(source, suspicious){
     reference = new Reference();
-    reference.set("TextFundstelle" , source);
-    reference.set("TextDissertation", suspicious);
+    reference.set("source" , source);
+    reference.set("suspicious", suspicious);
     reference.dmp = new DiffHandler();
     reference.set("linelength", 40);
 

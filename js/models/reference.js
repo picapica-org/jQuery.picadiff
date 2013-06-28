@@ -17,37 +17,10 @@ var Reference = Backbone.Model.extend(
 	 * Name of category
 	 * @return {String}
 	 */
-	getKategorie : function(){
-		return this.get("Kategorie")|| this.get("Typus") ||  "KeineKategorie";
+	getCategorie : function(){
+		return this.get("categorie") ||  "nocategory";
 	},
-	/**
-	 * Text of suspicious document
-	 * @return {String}
-	 */
-	getDissText : function(){
-		return this.get("TextDissertation") || this.get("TextArbeit");
-	},
-	/**
-	 * Text of source document
-	 * @return {String}
-	 */
-	getSourceText : function(){
-		return this.get("TextFundstelle") || this.get("TextQuelle");
-	},
-	/**
-	 * Page of reference in suspicious document
-	 * @return {Array}
-	 */
-	getDissPage : function(){
-		return this.get("Seite") || this.get("SeiteArbeit");
-	},
-	/**
-	 * Page of reference in source
-	 * @return {Array}
-	 */
-	getSourcePage : function(){
-		return this.get("SeiteFundstelle") || this.get("SeiteQuelle");
-	},
+
 	/**
 	 * Wordbased diff with
 	 * @return {Array}  EXPLAIN_PROTOCOL
@@ -56,9 +29,9 @@ var Reference = Backbone.Model.extend(
 		//lazy loading diffs
 		if(!this.diff){
 			var dmp = this.dmp;
-			var quelltext = this.getSourceText();
-			var disstext = this.getDissText();
-			this.diff = dmp.diff_wordbased(quelltext, disstext,false);
+			var source = this.get("source");
+			var suspicious = this.get("suspicious");
+			this.diff = dmp.diff_wordbased(source, suspicious,false);
 			//dmp.diff_cleanupSemantic(this.diff);
 		}
 		return this.diff;
@@ -164,28 +137,4 @@ var Reference = Backbone.Model.extend(
 //        else
 //            return this.getDissText().length;
 //    },
-	/**
-	 * Color of category
-	 * @return {d3.rgb}
-	 */
-	getCategoryColorRgb : function(){
-		switch(this.getKategorie()){
-			case "Verschleierung":
-				return d3.rgb(139, 18, 16);
-			case "KomplettPlagiat":
-				return d3.rgb(227, 26, 28);
-			case "ÜbersetzungsPlagiat":
-				return d3.rgb(51, 160, 44);
-			case "BauernOpfer":
-				return d3.rgb(166,206,227);
-			case "VerschärftesBauernOpfer":
-				return d3.rgb(31,120,180);
-			case "ShakeAndPaste":
-				return d3.rgb(255, 127, 0);
-			case "HalbsatzFlickerei":
-				return d3.rgb(106, 61, 154);
-			default:
-				return d3.rgb(64,64,64);
-		}
-	}
 });
