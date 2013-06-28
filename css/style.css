@@ -1,10 +1,9 @@
 @charset "UTF-8";
 
-#reusecontent{
-  width:800px;
-}
-
 .compareView {
+  width: 800px;
+  background-color: #f5f5f5;
+
   padding-top: 0 !important; }
   .compareView .comparisoncontrol {
     height: 40px;
@@ -33,39 +32,38 @@
         .compareView .comparisoncontrol .controlButtons button.wrap {
           border-left: 0;
           border-bottom-right-radius: 4px; }
-  .compareView .separator {
-    width: 10px;
-    height: 100%;
-    float: left;
-    margin-right: 20px;
-    border-right: 1px solid #d3d3d3;
-    border-color: #d3d3d3;
-    cursor: ew-resize; }
   .compareView .right, .compareView .left {
-    width: 376px;
-    float: left;
+    
+    width: 45%;
+    padding: 10px 2.5%;
     overflow: auto;
     font-family: 'Source Code Pro',monospace;
     font-weight: 400;
     font-size: 13px;
     /*max-height:400px;*/ }
+
+    .compareView .right{
+        margin-left: 50%;
+    }
+    .compareView .left{
+        float: left;
+    }
+
     .compareView .right h5, .compareView .left h5 {
       color: #000;
-      margin: 0 0 5px 0; }
+      margin: 0 0 10px 0; }
     .compareView .right .content, .compareView .left .content {
-      max-width: 350px;
+      width: 100%;
       float: left; }
     .compareView .right .equal, .compareView .left .equal {
-      color: white;
-      background-color: #666;
+      /*color: white;*/
+      background-color: #a8d975;
       /*font-weight: bold;*/
       /*border-bottom: 1px solid;*/ }
     .compareView .right .light, .compareView .left .light {
       background-color: #aaa; }
     .compareView .right .insertion, .compareView .left .insertion {
       /*color:#c61818;*/ }
-    .compareView .right .deletion, .compareView .left .deletion {
-      color: #875c04; }
 
 .blendingView .diffcontent {
   margin-top: 10px;
@@ -85,7 +83,6 @@
     background-color: white; }
   .blendingView .edit .insertion {
     /* Dissertation Text */
-    color: #875c04;
     background-color: white; }
 
 body, div, ul, ol, li, h1, h2, h3, h4, p, th, td, form {
