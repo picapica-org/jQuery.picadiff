@@ -1,0 +1,37 @@
+// Pull the plugin from Maven Central
+buildscript {
+    repositories {
+        mavenCentral()
+    }
+    dependencies {
+        classpath 'com.eriwen:gradle-js-plugin:1.5.1'
+    }
+}
+// Invoke the plugin
+apply plugin: 'js'
+
+def jsSrcDir = 'js'
+
+// Declare your sources
+javascript.source {
+    dev {
+        js {
+            srcDir jsSrcDir
+            include "**/*.js"
+            exclude "**/*.min.js"
+        }
+    }
+    prod {
+        js {
+            srcDir jsSrcDir
+            include "*.min.js"
+        }
+    }
+}
+
+// Configure the built-in task
+combineJs {
+    source = javascript.source.dev.js.files
+    dest = file("${projectDir}/diffvisalisationwidget.js")
+}
+
