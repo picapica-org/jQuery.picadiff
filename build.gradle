@@ -35,3 +35,11 @@ combineJs {
     dest = file("${projectDir}/diffvisalisationwidget.js")
 }
 
+minifyJs {
+    source = combineJs
+    dest = file("${projectDir}/diffvisualisationwidget-min.js")
+    closure {
+        warningLevel = 'QUIET'
+    }
+}
+
