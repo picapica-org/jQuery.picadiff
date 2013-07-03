@@ -52,7 +52,7 @@
     .diffVisualisation .right h5, .diffVisualisation .left h5 {
       color: #000;
       margin: 0 0 10px 0; }
-    .diffVisualisation .right .content, .diffVisualisation .left .content {
+    .diffVisualisation .right .diffvisualisation-content, .diffVisualisation .left .diffvisualisation-content {
       width: 100%;
       float: left; }
     .diffVisualisation .right .equal, .diffVisualisation .left .equal {

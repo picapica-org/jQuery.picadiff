@@ -3,16 +3,16 @@
 		var $this = $(this);
 
 		var referenceData = {
-			leftTitle 	: $this.find(".left h5").text(),
-			left 		: $this.find(".left .content").text(),
-			rightTitle 	: $this.find(".right h5").text(),
-			right 		: $this.find(".right .content").text(),
+			leftTitle	: $this.find(".left h5").text(),
+			left		: $this.find(".left .diffvisualisation-content").text(),
+			rightTitle	: $this.find(".right h5").text(),
+			right		: $this.find(".right .diffvisualisation-content").text(),
 		}
 
 		var reference = new Reference(referenceData);
 		var compareView = new CompareView({
 			model   : reference,
-			el 		: this,
+			el		: this,
 		});
 	}
 

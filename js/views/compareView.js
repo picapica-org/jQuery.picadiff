@@ -42,8 +42,8 @@ var CompareView = Backbone.View.extend(
 		var right = html_texts.source_html;
         var left = html_texts.diss_html;
 
-        this.$(".left .content").html(left);
-        this.$(".right .content").html(right);
+        this.$(".left .diffvisualisation-content").html(left);
+        this.$(".right .diffvisualisation-content").html(right);
 	},
 	
 	/**
