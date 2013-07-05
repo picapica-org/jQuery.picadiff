@@ -17,5 +17,5 @@ A small widget for visualizing the diff of two texts.
 	- Html entity decode ??
 3.  Include it:
 	```
-	<script src="/js/diffvisualisationwidget.js"></script>
+	<script src="/js/diffvisualisationwidget-0.2.min.js"></script>
 	```
