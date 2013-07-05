@@ -2,17 +2,17 @@
 /**
  * @class Represents a single reference.
  */
-var Reference = Backbone.Model.extend(
+var CompareData = Backbone.Model.extend(
 /** @lends Reference.prototype */
 {
 	defaults : {
-		active 		: false,
-		open 		: false,
+		active		: false,
+		open		: false,
 		comparison	: true,
-		wrap 		: false,
+		wrap		: false,
 		alignment	: true,
-		linelength 	: 40,
-		dmp 		: new DiffHandler()
+		linelength	: 40,
+		dmp			: new DiffHandler()
 	},
 
 	/**
@@ -23,7 +23,6 @@ var Reference = Backbone.Model.extend(
 		//lazy loading diffs
 		if(!this.diff){
 			var dmp = this.dmp;
-			
 			var left = this.get("left");
 			var right = this.get("right");
 			var dmp = this.get("dmp");

@@ -21,10 +21,10 @@
 			right		: settings.rightContent || $this.find(settings.rightContainer+" "+settings.contentContainer).text()
 		}
 
-		var reference = new Reference(referenceData);
+		var compareData = new CompareData(referenceData);
 
 		$.extend(settings, {
-			model   : reference,
+			model   : compareData,
 			el		: this
 		});
 		var compareView = new CompareView(settings);
