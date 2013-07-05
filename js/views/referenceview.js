@@ -42,7 +42,7 @@ var ReferenceView = Backbone.View.extend({
 			citationClass:	reference.getKategorie().toLowerCase(),
 			citationPage:	reference.getDissPage(),
 			sourceTitle:	reference.get("Quelle"),
-			sourcePage:		reference.get("SeiteFundstelle"),
+			sourcePage:		reference.get("SeiteFundstelle")
         };
 
 

@@ -12,7 +12,7 @@ var Reference = Backbone.Model.extend(
 		wrap 		: false,
 		alignment	: true,
 		linelength 	: 40,
-		dmp 		: new DiffHandler(),
+		dmp 		: new DiffHandler()
 	},
 
 	/**
@@ -120,7 +120,7 @@ var Reference = Backbone.Model.extend(
      */
     getTotalLength : function(){
         return Math.max(this.getDissText().length, this.getSourceText().length) + Math.abs(this.getDissText().length -this.getSourceText().length);
-    },
+    }
 
     /**
      * Length of reference

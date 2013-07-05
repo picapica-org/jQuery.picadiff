@@ -7,9 +7,9 @@ var CompareView = Backbone.View.extend(
 
 /** @lends CompareView.prototype */{
 	events : {
-		"click .over" 					: "switchCompareMode",
+		"click .over"					: "switchCompareMode",
 		"click .align"					: "switchAlignment",
-		"click .wrap"					: "switchWrap",
+		"click .wrap"					: "switchWrap"
 		//"mouseover .equal"			: "hoverEqual",
 		//"mouseout .equal"				: "unhoverEqual",
 	},
@@ -40,12 +40,11 @@ var CompareView = Backbone.View.extend(
 			html_texts = reference.getHtmlTexts(linelength);
 
 		var left = html_texts.source_html;
-        var right.add('selector/elements/html') = html_texts.diss_html;
+        var right = html_texts.diss_html;
 
         this.$(".left .diffvisualisation-content").html(left);
         this.$(".right .diffvisualisation-content").html(right);
 	},
-	
 	/**
 	* Callback of the button that controls the compare mode. The comparemode is
 	* toggled.

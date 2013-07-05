@@ -1,4 +1,6 @@
 // Pull the plugin from Maven Central
+version = "0.2"
+
 buildscript {
     repositories {
         mavenCentral()
@@ -21,23 +23,17 @@ javascript.source {
             exclude "**/*.min.js"
         }
     }
-    prod {
-        js {
-            srcDir jsSrcDir
-            include "*.min.js"
-        }
-    }
 }
 
 // Configure the built-in task
 combineJs {
     source = javascript.source.dev.js.files
-    dest = file("${projectDir}/diffvisalisationwidget.js")
+    dest = file("${projectDir}/diffvisalisationwidget-${version}.js")
 }
 
 minifyJs {
     source = combineJs
-    dest = file("${projectDir}/diffvisualisationwidget-min.js")
+    dest = file("${projectDir}/diffvisualisationwidget-${version}min.js")
     closure {
         warningLevel = 'QUIET'
     }
