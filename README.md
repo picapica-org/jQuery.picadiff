@@ -6,8 +6,8 @@ A small widget for visualizing the diff of two texts.
 
 ## Installation
 1. Download latest version (minified version is recommended)
-	- [diffvisalisationwidget-0.2.min.js](https://s3-eu-west-1.amazonaws.com/diffvisualisationwidget.js/diffvisualisationwidget-0.2.min.js) (recommended)
-	- [diffvisalisationwidget-0.2.js](https://s3-eu-west-1.amazonaws.com/diffvisualisationwidget.js/diffvisalisationwidget-0.2.js)
+	- [diffvisualisationwidget-0.2.min.js](https://s3-eu-west-1.amazonaws.com/diffvisualisationwidget.js/diffvisualisationwidget-0.2.min.js) (recommended)
+	- [diffvisualisationwidget-0.2.js](https://s3-eu-west-1.amazonaws.com/diffvisualisationwidget.js/diffvisualisationwidget-0.2.js)
 2. Download and include required dependencies: 
 	- [jQuery](http://jquery.com/)
 	- [Webfont Loader](https://github.com/typekit/webfontloader)
