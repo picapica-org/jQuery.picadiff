@@ -2,18 +2,32 @@
 	var applyDiffWidget = function(options){
 		var $this = $(this);
 
+		var settings = {
+			leftContainer		: ".left",
+			rightContainer		: ".right",
+			titleContainer		: ".title",
+			contentContainer	: ".diffvisualisation-content"
+		};
+		// If options exist, lets merge them
+		// with our default settings
+		if ( options ) { 
+			$.extend( settings, options );
+		}
+
 		var referenceData = {
-			leftTitle	: $this.find(".left h5").text(),
-			left		: $this.find(".left .diffvisualisation-content").text(),
-			rightTitle	: $this.find(".right h5").text(),
-			right		: $this.find(".right .diffvisualisation-content").text()
+			leftTitle	: settings.leftTitle 	|| $this.find(settings.leftContainer+" "+settings.titleContainer).text(),
+			left		: settings.leftContent	|| $this.find(settings.leftContainer+" "+settings.contentContainer).text(),
+			rightTitle	: settings.rightTitle	|| $this.find(settings.rightContainer+" "+settings.titleContainer).text(),
+			right		: settings.rightContent || $this.find(settings.rightContainer+" "+settings.contentContainer).text()
 		}
 
 		var reference = new Reference(referenceData);
-		var compareView = new CompareView({
+
+		$.extend(settings, {
 			model   : reference,
 			el		: this
 		});
+		var compareView = new CompareView(settings);
 	}
 
 	$.fn.applyDiffWidget = function(options){

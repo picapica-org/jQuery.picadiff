@@ -1,5 +1,5 @@
 // Pull the plugin from Maven Central
-version = "0.2"
+version = "0.3"
 
 buildscript {
     repositories {
