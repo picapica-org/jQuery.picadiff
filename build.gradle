@@ -28,12 +28,12 @@ javascript.source {
 // Configure the built-in task
 combineJs {
     source = javascript.source.dev.js.files
-    dest = file("${projectDir}/diffvisalisationwidget-${version}.js")
+    dest = file("${projectDir}/diffvisualisationwidget-${version}.js")
 }
 
 minifyJs {
     source = combineJs
-    dest = file("${projectDir}/diffvisualisationwidget-${version}min.js")
+    dest = file("${projectDir}/diffvisualisationwidget-${version}.min.js")
     closure {
         warningLevel = 'QUIET'
     }
