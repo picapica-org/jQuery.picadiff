@@ -5,25 +5,29 @@ DiffVisualisationWidget.js
 A small widget for visualizing the diff of two texts.
 
 ## Installation
-1. Download latest version (minified version is recommended)
+1. Download latest javascript (minified version is recommended)
 	- [diffvisualisationwidget-0.3.min.js](https://s3-eu-west-1.amazonaws.com/diffvisualisationwidget.js/diffvisualisationwidget-0.3.min.js) (recommended)
 	- [diffvisualisationwidget-0.3.js](https://s3-eu-west-1.amazonaws.com/diffvisualisationwidget.js/diffvisualisationwidget-0.3.js)
 	- [diffvisualisationwidget-0.2.min.js](https://s3-eu-west-1.amazonaws.com/diffvisualisationwidget.js/diffvisualisationwidget-0.2.min.js)
 	- [diffvisualisationwidget-0.2.js](https://s3-eu-west-1.amazonaws.com/diffvisualisationwidget.js/diffvisualisationwidget-0.2.js)
-2. Download and include required dependencies: 
+2. Download CSS of the same version
+	- [diffvisualisationwidget-0.3.css](https://s3-eu-west-1.amazonaws.com/diffvisualisationwidget.js/diffvisualisationwidget-0.3.css)
+3. Download and include required dependencies: 
 	- [jQuery](http://jquery.com/)
 	- [Webfont Loader](https://github.com/typekit/webfontloader)
 	- [Underscore.js](http://underscorejs.org/)
 	- [Backbone.js](http://backbonejs.org/)
 	- [google-diff-match-patch](https://code.google.com/p/google-diff-match-patch/)
 	- Html entity decode ??
-3.  Include it:
+4.  Include it:
 	
 	```html
+	<link rel="stylesheet" type="text/css" href="css/diffvisualisationwidget-0.3.css"/>
+	...
 	<script src="/js/diffvisualisationwidget-0.3.min.js"></script>
 	```
 
-4. Use it in your code:
+5. Use it in your code:
 
 	```javascript
 	$(".diffVisualisation").applyDiffWidget(options);
