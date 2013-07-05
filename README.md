@@ -57,8 +57,8 @@ leftContainer	: CSS identificator of the left container (default=".left")
 rightContainer	: CSS identificator of the right container (default=".right")
 contentContainer: CSS identificator of the content containers. 
 	Must be inside the right and left container (default=".diffvisualisation-content")
-left		: Content to diff as left side. Set this parameter if you don't 
+leftContent	: Content to diff as left side. Set this parameter if you don't 
 	want the widget to search for the content.
-right		: Content to diff as right side. Set this parameter if you don't 
+rightContent	: Content to diff as right side. Set this parameter if you don't 
 	want the widget to search for the content.
 ```
