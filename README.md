@@ -16,6 +16,6 @@ A small widget for visualizing the diff of two texts.
 	- [google-diff-match-patch](https://code.google.com/p/google-diff-match-patch/)
 	- Html entity decode ??
 3.  Include it:
-	'''html
+	```html
 	<script src="/js/diffvisualisationwidget.js"></script>
-	'''
+	```
