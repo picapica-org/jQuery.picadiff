@@ -45,6 +45,8 @@ var CompareView = Backbone.View.extend(
         var options = this.options;
         this.$(options.leftContainer+" "+options.contentContainer).html(left);
         this.$(options.rightContainer+" "+options.contentContainer).html(right);
+        this.$(options.leftContainer+" "+options.titleContainer).html(reference.get("leftTitle"));
+        this.$(options.rightContainer+" "+options.titleContainer).html(reference.get("rightTitle"));
 	},
 	/**
 	* Callback of the button that controls the compare mode. The comparemode is
