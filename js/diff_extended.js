@@ -64,7 +64,7 @@ DiffHandler.prototype.diff_html = function(diffs){
 	        	html_string += '</span>';
 	        	editopen = false;
 	        }
-	        html_string += '<span class="equal">' + text + '</span>';
+	        html_string += '<span class="equal">' + text.trim() + '</span> ';
 	        break;
 	    }
 

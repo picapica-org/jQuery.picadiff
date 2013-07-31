@@ -33,8 +33,9 @@ Allignment.prototype.append = function(text, classname){
 		this.line += textsplit[i] + " ";
 
 	}
+	this.line = this.line.trim();
 	if(classname)
-		this.line += "</span>";
+		this.line += "</span> ";
 };
 
 /**
