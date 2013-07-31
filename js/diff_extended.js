@@ -86,7 +86,6 @@ DiffHandler.prototype.equal_line = function(diffs, intervalLength){
 	for(var x = 0; x < diffs.length; x++){
 		var op = diffs[x][0];
 		var data = diffs[x][1];
-        console.log(typeof data);
 		for (var i = 0; i < data.length; i++){
 			index++;
 			if(op == DIFF_EQUAL)
@@ -104,6 +103,21 @@ DiffHandler.prototype.equal_line = function(diffs, intervalLength){
 	return dataline;
 };
 
+dataArraytoString = function(datarr){
+	var returnvalue = "";
+	for(var i in datarr){
+		returnvalue += datarr[i] + " ";
+	}
+	return returnvalue;
+}
+
+dataArraytoString2D = function(datarr, dim){
+	var returnvalue = "";
+	for(var i in datarr){
+		returnvalue += datarr[i][dim] + " ";
+	}
+	return returnvalue;
+}
 
 /**
  * Constructs a HTML representation of the diff with alignment of the equal
@@ -124,21 +138,23 @@ DiffHandler.prototype.alligned_texts = function(diffs, maxchars){
 
 		switch(op){
 			case DIFF_INSERT:
-				diss_line.append(data, "insertion");
+				diss_line.append(dataArraytoString(data), "insertion");
 				break;
 			case DIFF_DELETE:
-				source_line.append(data, "deletion");
+				source_line.append(dataArraytoString(data), "deletion");
 				break;
 			case DIFF_EQUAL:
-				if(data.length>10){
+				disstext = dataArraytoString2D(data,1);
+				sourcetext = dataArraytoString2D(data,0);
+				if(disstext.length>10){
 					maximumLines = Math.max(source_line.linecount, diss_line.linecount);
 					source_line.setLineCountTo(maximumLines);
 					diss_line.setLineCountTo(maximumLines);
-					source_line.append(data, "equal");
-					diss_line.append(data, "equal");
+					source_line.append(sourcetext, "equal");
+					diss_line.append(disstext, "equal");
 				} else{
-					diss_line.append(data, "insertion");
-					source_line.append(data, "deletion");
+					diss_line.append(disstext, "insertion");
+					source_line.append(sourcetext, "deletion");
 				}
 
 				break;
@@ -196,6 +212,42 @@ DiffHandler.prototype.alligned_texts_strict = function(diffs, maxchars){
 };
 
 /**
+ * Transforms a given array of words into a character string. Each desinct
+ * word is encoded as the same character.
+*/
+diff_match_patch.prototype.words_to_characters = function(textarr){
+	var regexp = new RegExp(/\W/gi);
+	var textchars = "";
+
+	for(var i in textarr){
+		var word = textarr[i];
+		var normalized_word = word.toLowerCase();
+		normalized_word = normalized_word.replace(regexp, '');
+		if(this.word_dict.hasOwnProperty(normalized_word)){
+			var character = this.word_dict[normalized_word];
+			textchars += character;
+			if(this.char_dict[character].length != (this.textnumber + 1))
+				this.char_dict[character].push(new Array);
+			wordlist = this.char_dict[character][this.textnumber];
+			wordlist.push(word);
+			continue;
+		}
+
+		var character = String.fromCharCode(this.charcode);
+		this.word_dict[normalized_word] = character;
+		this.char_dict[character] = new Array();
+		this.char_dict[character].push(new Array());
+		this.char_dict[character][this.textnumber] = [word];
+		this.charcode += 1;
+		textchars += character;
+	}
+
+	this.textnumber += 1;
+
+	return textchars;
+}
+
+/**
  * Computes the diff on wordbase. This is an extention of the character based
  * diff computation of the google_diff_match_patch framework.
  * @return {Array} word based diff consisting of arrays, in which the first
@@ -206,52 +258,45 @@ DiffHandler.prototype.alligned_texts_strict = function(diffs, maxchars){
 diff_match_patch.prototype.diff_wordbased = function(text1, text2, lebool){
 	text1 = text1.replace(/\r|\n/g, " ");
 	text2 = text2.replace(/\r|\n/g, " ");
-	textarr1 = text1.split(/\s/);
-	textarr2 = text2.split(/\s/);
-	textchars1 = "";
-	textchars2 = "";
-	var word_dict = {};
-	var charcode = 21;
+	textarr1 = text1.split(/\s/g);
+	textarr2 = text2.split(/\s/g);
+	this.word_dict = {};
+	this.charcode = 21;
+	this.textnumber = 0;
 
-	for(var i in textarr1){
-		var word = textarr1[i];
-		if(word_dict.hasOwnProperty(word)){
-			textchars1 += word_dict[word];
-			continue;
-		}
+	this.char_dict= {};
+	textchars1 = this.words_to_characters(textarr1);
+	textchars2 = this.words_to_characters(textarr2);
 
-		var character = String.fromCharCode(charcode);
-		word_dict[word] = character;
-		charcode += 1;
-		textchars1 += character;
-	}
-
-	for(var i in textarr2){
-		var word = textarr2[i];
-		if(word_dict.hasOwnProperty(word)){
-			textchars2 += word_dict[word];
-			continue;
-		}
-		var character = String.fromCharCode(charcode);
-		word_dict[word] = character;
-		charcode += 1;
-		textchars2 += character;
-	}
-
-	var char_dict= {};
-	for (var i in word_dict){
-		char_dict[word_dict[i]] = i;
-	}
 
 	var diffs = this.diff_main(textchars1, textchars2, lebool);
 	var result = [];
 	for(var x = 0; x < diffs.length; x++){
 		var op = diffs[x][0];
 		var data = diffs[x][1];
-		var encodedstring = "";
+		var encodedstring = [];
 		var datarr = data.split("");
 		for(var i in datarr){
-		encodedstring += char_dict[datarr[i]] + " ";
+			var character = datarr[i];
+			var character_entry = this.char_dict[character];
+			var nextword = [];
+			switch(op){
+				case DIFF_DELETE:
+					nextword = character_entry[0][0];
+					character_entry[0].splice(0,1);
+					break;
+				case DIFF_INSERT:
+					nextword = character_entry[1][0];
+					character_entry[1].splice(0,1);
+					break;
+				case DIFF_EQUAL:
+					nextword.push(character_entry[0][0]);
+					nextword.push(character_entry[1][0]);
+					character_entry[0].splice(0,1);
+					character_entry[1].splice(0,1);
+			}
+			encodedstring.push(nextword);
+			i += 1;
 		}
 		result.push([op,encodedstring]);
 	}
