@@ -5,19 +5,19 @@ DiffVisualisationWidget.js
 A small widget for visualizing the diff of two texts.
 
 ## Recent Changes
-	v0.4
-	- changed standard DOM structure
-	- fixed issue #1: Special characters should be ignored from diff
-	- fixed issue #2: Diff-Matches should be case-insensitive
-	- fixed issue #3: Diff-Matches should be trimmed
-	- fixed issue #4: Title elements with different height
-	
-	v0.3
-	- content can be submitted in options
+v0.4
+- changed standard DOM structure
+- fixed issue #1: Special characters should be ignored from diff
+- fixed issue #2: Diff-Matches should be case-insensitive
+- fixed issue #3: Diff-Matches should be trimmed
+- fixed issue #4: Title elements with different height
 
-	v0.2
-	- changed API to use jQuery
-	- data is now read from structured html
+v0.3
+- content can be submitted in options
+
+v0.2
+- changed API to use jQuery
+- data is now read from structured html
 
 ## Installation
 1. Download latest javascript (minified version is recommended)
