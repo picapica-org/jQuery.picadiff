@@ -50,10 +50,10 @@
     .diffVisualisation .right .title, .diffVisualisation .left .title {
       color: #000;
       margin: 0 0 10px 0; }
-    .diffVisualisation .right .diffvisualisation-content, .diffVisualisation .left .diffvisualisation-content {
+    .diffVisualisation .diffvisualisation-content {
       font-family: 'Source Code Pro',monospace;
       width: 100%;
-      float: left; }
+      overflow: hidden; }
     .diffVisualisation .right .equal, .diffVisualisation .left .equal {
       /*color: white;*/
       background-color: #a8d975;

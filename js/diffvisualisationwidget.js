@@ -15,10 +15,10 @@
 		}
 
 		var referenceData = {
-			leftTitle	: settings.leftTitle 	|| $this.find(settings.leftContainer+" "+settings.titleContainer).text(),
-			left		: settings.leftContent	|| $this.find(settings.leftContainer+" "+settings.contentContainer).text(),
-			rightTitle	: settings.rightTitle	|| $this.find(settings.rightContainer+" "+settings.titleContainer).text(),
-			right		: settings.rightContent || $this.find(settings.rightContainer+" "+settings.contentContainer).text()
+			leftTitle	: settings.leftTitle 	|| $this.find(settings.titleContainer+" "+settings.leftContainer).text(),
+			left		: settings.leftContent	|| $this.find(settings.contentContainer+" "+settings.leftContainer).text(),
+			rightTitle	: settings.rightTitle	|| $this.find(settings.titleContainer+" "+settings.rightContainer).text(),
+			right		: settings.rightContent || $this.find(settings.contentContainer+" "+settings.rightContainer).text()
 		}
 
 		var compareData = new CompareData(referenceData);
