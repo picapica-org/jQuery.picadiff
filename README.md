@@ -2,7 +2,9 @@ DiffVisualisationWidget.js
 ==========================
 
 ## About
-A small widget for visualizing the diff of two texts.
+A small widget for visualizing text reuse of two texts.
+
+![screenshot](https://dl.dropboxusercontent.com/u/1461704/diff-screenshot.jpg)
 
 ## Recent Changes
 v0.4
@@ -30,7 +32,7 @@ v0.2
 2. Download CSS of the same version
 	- [diffvisualisationwidget-0.4.css](https://s3-eu-west-1.amazonaws.com/diffvisualisationwidget.js/diffvisualisationwidget-0.4.css)
 	- [diffvisualisationwidget-0.3.css](https://s3-eu-west-1.amazonaws.com/diffvisualisationwidget.js/diffvisualisationwidget-0.3.css)
-3. Download and include required dependencies: 
+3. Download and include required dependencies:
 	- [jQuery](http://jquery.com/)
 	- [Webfont Loader](https://github.com/typekit/webfontloader)
 	- [Underscore.js](http://underscorejs.org/)
@@ -38,7 +40,7 @@ v0.2
 	- [google-diff-match-patch](https://code.google.com/p/google-diff-match-patch/)
 	- Html entity decode ??
 4.  Include it:
-	
+
 	```html
 	<link rel="stylesheet" type="text/css" href="css/diffvisualisationwidget-0.4.css"/>
 	...
@@ -77,10 +79,10 @@ All these parameters are optional
 ```
 leftContainer	: CSS identificator of the left container (default=".left")
 rightContainer	: CSS identificator of the right container (default=".right")
-contentContainer: CSS identificator of the content containers. 
+contentContainer: CSS identificator of the content containers.
 	Must be inside the right and left container (default=".diffvisualisation-content")
-leftContent	: Content to diff as left side. Set this parameter if you don't 
+leftContent	: Content to diff as left side. Set this parameter if you don't
 	want the widget to search for the content.
-rightContent	: Content to diff as right side. Set this parameter if you don't 
+rightContent	: Content to diff as right side. Set this parameter if you don't
 	want the widget to search for the content.
 ```
