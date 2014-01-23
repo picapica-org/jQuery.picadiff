@@ -7,6 +7,10 @@ A small widget for visualizing text reuse of two texts.
 ![screenshot](https://dl.dropboxusercontent.com/u/1461704/diff-screenshot.jpg)
 
 ## Recent Changes
+v0.5
+- set default diff_match_patch timeout to 0
+- added timeout property
+
 v0.4
 - changed standard DOM structure
 - fixed issue #1: Special characters should be ignored from diff
