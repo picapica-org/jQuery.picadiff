@@ -31,7 +31,10 @@
 	}
 
 	$.fn.applyDiffWidget = function(options){
-		WebFont.load({google: {families: ['Source Code Pro']}});
+		//check if WebFont API is present
+		if(window['WebFont'] != undefined) { 
+			WebFont.load({google: {families: ['Source Code Pro']}});
+		}
 		return this.each(function(){
 			applyDiffWidget.call(this, options);
 		});
