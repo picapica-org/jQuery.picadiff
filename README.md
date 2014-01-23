@@ -10,6 +10,7 @@ A small widget for visualizing text reuse of two texts.
 v0.5
 - set default diff_match_patch timeout to 0
 - added timeout property
+- using Webfont API is optional
 
 v0.4
 - changed standard DOM structure
@@ -40,11 +41,11 @@ v0.2
 	- [diffvisualisationwidget-0.3.css](https://s3-eu-west-1.amazonaws.com/diffvisualisationwidget.js/diffvisualisationwidget-0.3.css)
 3. Download and include required dependencies:
 	- [jQuery](http://jquery.com/)
-	- [Webfont Loader](https://github.com/typekit/webfontloader)
 	- [Underscore.js](http://underscorejs.org/)
 	- [Backbone.js](http://backbonejs.org/)
 	- [google-diff-match-patch](https://code.google.com/p/google-diff-match-patch/)
 	- Html entity decode ??
+	- [Webfont Loader](https://github.com/typekit/webfontloader) (optional)
 4.  Include it:
 
 	```html
