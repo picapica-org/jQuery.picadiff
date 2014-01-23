@@ -16,6 +16,13 @@ var CompareData = Backbone.Model.extend(
 	},
 
 	/**
+	 * initializes and sets diff timeout to infinit
+	 */
+	initialize: function() {
+		dmp.Diff_Timeout = 0;
+	}
+
+	/**
 	 * Wordbased diff with
 	 * @return {Array}  EXPLAIN_PROTOCOL
 	 */
