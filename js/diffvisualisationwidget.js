@@ -21,7 +21,7 @@
 			right		: settings.rightContent || $this.find(settings.contentContainer+" "+settings.rightContainer).text()
 		}
 
-		var compareData = new CompareData(referenceData);
+		var compareData = new CompareData(referenceData, options);
 
 		$.extend(settings, {
 			model   : compareData,

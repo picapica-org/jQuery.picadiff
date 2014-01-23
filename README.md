@@ -23,14 +23,16 @@ v0.2
 
 ## Installation
 1. Download latest javascript (minified version is recommended)
-	- [diffvisualisationwidget-0.4.min.js](https://s3-eu-west-1.amazonaws.com/diffvisualisationwidget.js/diffvisualisationwidget-0.4.min.js) (recommended)
+	- [diffvisualisationwidget-0.5.min.js](https://s3-eu-west-1.amazonaws.com/diffvisualisationwidget.js/diffvisualisationwidget-0.5.min.js) (recommended)
+	- [diffvisualisationwidget-0.5.js](https://s3-eu-west-1.amazonaws.com/diffvisualisationwidget.js/diffvisualisationwidget-0.5.js)
+	- [diffvisualisationwidget-0.4.min.js](https://s3-eu-west-1.amazonaws.com/diffvisualisationwidget.js/diffvisualisationwidget-0.4.min.js)
 	- [diffvisualisationwidget-0.4.js](https://s3-eu-west-1.amazonaws.com/diffvisualisationwidget.js/diffvisualisationwidget-0.4.js)
-	- [diffvisualisationwidget-0.3.min.js](https://s3-eu-west-1.amazonaws.com/diffvisualisationwidget.js/diffvisualisationwidget-0.3.min.js) (recommended)
+	- [diffvisualisationwidget-0.3.min.js](https://s3-eu-west-1.amazonaws.com/diffvisualisationwidget.js/diffvisualisationwidget-0.3.min.js)
 	- [diffvisualisationwidget-0.3.js](https://s3-eu-west-1.amazonaws.com/diffvisualisationwidget.js/diffvisualisationwidget-0.3.js)
 	- [diffvisualisationwidget-0.2.min.js](https://s3-eu-west-1.amazonaws.com/diffvisualisationwidget.js/diffvisualisationwidget-0.2.min.js)
 	- [diffvisualisationwidget-0.2.js](https://s3-eu-west-1.amazonaws.com/diffvisualisationwidget.js/diffvisualisationwidget-0.2.js)
 2. Download CSS of the same version
-	- [diffvisualisationwidget-0.4.css](https://s3-eu-west-1.amazonaws.com/diffvisualisationwidget.js/diffvisualisationwidget-0.4.css)
+	- [diffvisualisationwidget-0.4.css](https://s3-eu-west-1.amazonaws.com/diffvisualisationwidget.js/diffvisualisationwidget-0.4.css) (recommended)
 	- [diffvisualisationwidget-0.3.css](https://s3-eu-west-1.amazonaws.com/diffvisualisationwidget.js/diffvisualisationwidget-0.3.css)
 3. Download and include required dependencies:
 	- [jQuery](http://jquery.com/)
@@ -44,7 +46,7 @@ v0.2
 	```html
 	<link rel="stylesheet" type="text/css" href="css/diffvisualisationwidget-0.4.css"/>
 	...
-	<script src="/js/diffvisualisationwidget-0.4.min.js"></script>
+	<script src="/js/diffvisualisationwidget-0.5.min.js"></script>
 	```
 
 5. Use it in your code:
@@ -85,4 +87,5 @@ leftContent	: Content to diff as left side. Set this parameter if you don't
 	want the widget to search for the content.
 rightContent	: Content to diff as right side. Set this parameter if you don't
 	want the widget to search for the content.
+timeout			: diff_match_patch timeout (default=0)
 ```
