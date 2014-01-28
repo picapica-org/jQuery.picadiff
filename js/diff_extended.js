@@ -216,13 +216,14 @@ DiffHandler.prototype.alligned_texts_strict = function(diffs, maxchars){
  * word is encoded as the same character.
 */
 diff_match_patch.prototype.words_to_characters = function(textarr){
-	var regexp = new RegExp(/\W/gi);
+	var alphanumericRegExp = /\W/gi;
+	var openingSquareBracket = /\[\d+\]/g;
 	var textchars = "";
 
 	for(var i in textarr){
 		var word = textarr[i];
 		var normalized_word = word.toLowerCase();
-		normalized_word = normalized_word.replace(regexp, '');
+		normalized_word = normalized_word.replace(openingSquareBracket, '').replace(alphanumericRegExp, '');
 		if(this.word_dict.hasOwnProperty(normalized_word)){
 			var character = this.word_dict[normalized_word];
 			textchars += character;
