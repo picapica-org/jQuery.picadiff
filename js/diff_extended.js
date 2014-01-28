@@ -217,7 +217,7 @@ DiffHandler.prototype.alligned_texts_strict = function(diffs, maxchars){
 */
 diff_match_patch.prototype.words_to_characters = function(textarr){
 	var alphanumericRegExp = /\W/gi;
-	var openingSquareBracket = /\[\d+\]/g;
+	var openingSquareBracket = /\[(\w+|[a-z]+)\]/gi;
 	var textchars = "";
 
 	for(var i in textarr){
