@@ -28,7 +28,9 @@ v0.2
 
 ## Installation
 1. Download latest javascript (minified version is recommended)
-	- [diffvisualisationwidget-0.5.min.js](https://s3-eu-west-1.amazonaws.com/diffvisualisationwidget.js/diffvisualisationwidget-0.5.min.js) (recommended)
+	- [diffvisualisationwidget-0.5.1.min.js](https://s3-eu-west-1.amazonaws.com/diffvisualisationwidget.js/diffvisualisationwidget-0.5.1.min.js) (recommended)
+	- [diffvisualisationwidget-0.5.1.js](https://s3-eu-west-1.amazonaws.com/diffvisualisationwidget.js/diffvisualisationwidget-0.5.1.js)
+	- [diffvisualisationwidget-0.5.min.js](https://s3-eu-west-1.amazonaws.com/diffvisualisationwidget.js/diffvisualisationwidget-0.5.min.js)
 	- [diffvisualisationwidget-0.5.js](https://s3-eu-west-1.amazonaws.com/diffvisualisationwidget.js/diffvisualisationwidget-0.5.js)
 	- [diffvisualisationwidget-0.4.min.js](https://s3-eu-west-1.amazonaws.com/diffvisualisationwidget.js/diffvisualisationwidget-0.4.min.js)
 	- [diffvisualisationwidget-0.4.js](https://s3-eu-west-1.amazonaws.com/diffvisualisationwidget.js/diffvisualisationwidget-0.4.js)
