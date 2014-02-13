@@ -7,6 +7,9 @@ A small widget for visualizing text reuse of two texts.
 ![screenshot](https://dl.dropboxusercontent.com/u/1461704/diff-screenshot.jpg)
 
 ## Recent Changes
+v0.5.2
+- fixed issue #6: Identische Worte werden nicht gematcht
+
 v0.5.1
 - fixed issue #5: Words do not match if one ends with a special character and the other does not
 
