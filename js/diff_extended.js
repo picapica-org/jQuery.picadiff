@@ -257,8 +257,8 @@ diff_match_patch.prototype.words_to_characters = function(textarr){
  * operation.
 */
 diff_match_patch.prototype.diff_wordbased = function(text1, text2, lebool){
-	text1 = text1.replace(/\r|\n/g, " ");
-	text2 = text2.replace(/\r|\n/g, " ");
+	text1 = text1.replace(/\r|\n/g, ' ').replace(/ +/g, ' ');
+	text2 = text2.replace(/\r|\n/g, ' ').replace(/ +/g, ' ');
 	textarr1 = text1.split(/\s/g);
 	textarr2 = text2.split(/\s/g);
 	this.word_dict = {};
