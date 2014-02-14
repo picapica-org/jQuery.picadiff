@@ -1,4 +1,4 @@
-DiffVisualisationWidget.js
+DiffVisualisationWidget.js [![Build Status](https://travis-ci.org/picapica-net/DiffVisualisationWidget.js.png?branch=v0.6.0)](https://travis-ci.org/picapica-net/DiffVisualisationWidget.js)
 ==========================
 
 ## About
