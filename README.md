@@ -62,7 +62,7 @@ v0.2
 	```html
 	<link rel="stylesheet" type="text/css" href="css/diffvisualisationwidget-0.4.css"/>
 	...
-	<script src="/js/diffvisualisationwidget-0.5.min.js"></script>
+	<script src="/js/jquery.diffvisualisationwidget-0.6.0.min.js"></script>
 	```
 
 5. Use it in your code:
