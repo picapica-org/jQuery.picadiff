@@ -7,6 +7,10 @@ A small widget for visualizing text reuse of two texts.
 ![screenshot](https://dl.dropboxusercontent.com/u/1461704/diff-screenshot.jpg)
 
 ## Recent Changes
+v0.6.0
+- refactored to a yeoman app
+- removed backbone.js and underscore.js dependencies
+
 v0.5.2
 - fixed issue #6: Identische Worte werden nicht gematcht
 
@@ -34,6 +38,8 @@ v0.2
 
 ## Installation
 1. Download latest javascript (minified version is recommended)
+	- [diffvisualisationwidget-0.6.0.min.js](https://s3-eu-west-1.amazonaws.com/diffvisualisationwidget.js/diffvisualisationwidget-0.6.0.min.js) (recommended)
+	- [diffvisualisationwidget-0.6.0.js](https://s3-eu-west-1.amazonaws.com/diffvisualisationwidget.js/diffvisualisationwidget-0.6.0.js)
 	- [diffvisualisationwidget-0.5.1.min.js](https://s3-eu-west-1.amazonaws.com/diffvisualisationwidget.js/diffvisualisationwidget-0.5.1.min.js) (recommended)
 	- [diffvisualisationwidget-0.5.1.js](https://s3-eu-west-1.amazonaws.com/diffvisualisationwidget.js/diffvisualisationwidget-0.5.1.js)
 	- [diffvisualisationwidget-0.5.min.js](https://s3-eu-west-1.amazonaws.com/diffvisualisationwidget.js/diffvisualisationwidget-0.5.min.js)
@@ -44,15 +50,12 @@ v0.2
 	- [diffvisualisationwidget-0.3.js](https://s3-eu-west-1.amazonaws.com/diffvisualisationwidget.js/diffvisualisationwidget-0.3.js)
 	- [diffvisualisationwidget-0.2.min.js](https://s3-eu-west-1.amazonaws.com/diffvisualisationwidget.js/diffvisualisationwidget-0.2.min.js)
 	- [diffvisualisationwidget-0.2.js](https://s3-eu-west-1.amazonaws.com/diffvisualisationwidget.js/diffvisualisationwidget-0.2.js)
-2. Download CSS of the same version
+2. Download latest CSS
 	- [diffvisualisationwidget-0.4.css](https://s3-eu-west-1.amazonaws.com/diffvisualisationwidget.js/diffvisualisationwidget-0.4.css) (recommended)
 	- [diffvisualisationwidget-0.3.css](https://s3-eu-west-1.amazonaws.com/diffvisualisationwidget.js/diffvisualisationwidget-0.3.css)
 3. Download and include required dependencies:
 	- [jQuery](http://jquery.com/)
-	- [Underscore.js](http://underscorejs.org/)
-	- [Backbone.js](http://backbonejs.org/)
 	- [google-diff-match-patch](https://code.google.com/p/google-diff-match-patch/)
-	- Html entity decode ??
 	- [Webfont Loader](https://github.com/typekit/webfontloader) (optional)
 4.  Include it:
 
