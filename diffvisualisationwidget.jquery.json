@@ -1,0 +1,30 @@
+{
+  "name": "diffvisualisationwidget",
+  "title": "DiffVisualisationWidget",
+  "description": "A small widget for visualizing text reuse of two texts.",
+  "version": "0.6.0",
+  "homepage": "https://github.com/picapica-net/DiffVisualisationWidget.js",
+  "author": {
+    "name": "Jan Graßegger",
+    "url": "https://github.com/picapica-net"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/picapica-net/DiffVisualisationWidget.js"
+  },
+  "bugs": { 
+    "url" : "https://github.com/picapica-net/DiffVisualisationWidget.js/issues",
+    "email" : "jan.grassegger@picapica.org"},
+  "licenses": [
+    {
+      "type": "MIT",
+      "url": "http://opensource.org/licenses/MIT"
+    }
+  ],
+  "dependencies": {
+    "jquery": "~2.1.0"
+  },
+  "keywords": [
+    "jquery-plugin"
+  ]
+}

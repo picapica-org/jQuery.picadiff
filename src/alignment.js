@@ -18,8 +18,9 @@ function Allignment(){
 
 Allignment.prototype.append = function(text, classname){
 	var textsplit = text.split(" ");
-	if(classname)
+	if(classname) {
 		this.line += '<span class="'+classname+'">';
+	}
 	for(var i in textsplit){
 		this.charcount += textsplit[i].length + 1;
 		this.wordcount += 1;
@@ -34,8 +35,9 @@ Allignment.prototype.append = function(text, classname){
 
 	}
 	this.line = this.line.trim();
-	if(classname)
+	if(classname) {
 		this.line += "</span> ";
+	}
 };
 
 /**
@@ -43,8 +45,9 @@ Allignment.prototype.append = function(text, classname){
 */
 Allignment.prototype.appendStrict = function(text, classname){
 	var textsplit = text.split("");
-	if(classname)
+	if(classname){
 		this.line += '<span class="'+classname+'">';
+	}
 	for(var i in textsplit){
 		if(this.charcount > 0 && this.charcount % this.maxchars === 0){
 			this.line += "<br>";
@@ -56,8 +59,9 @@ Allignment.prototype.appendStrict = function(text, classname){
 		}
 		this.line += textsplit[i];
 	}
-	if(classname)
+	if(classname) {
 		this.line += "</span>";
+	}
 };
 
 
@@ -66,8 +70,9 @@ Allignment.prototype.appendStrict = function(text, classname){
  * added to the text.
 */
 Allignment.prototype.setLineCountTo = function(linecount){
-	if(linecount === 0)
+	if(linecount === 0) {
 		return;
+	}
 	while(this.linecount <= linecount){
 		this.line += "<br>";
 		this.wordcount = 0;
