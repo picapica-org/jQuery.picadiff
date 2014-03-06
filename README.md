@@ -71,8 +71,10 @@ timeout     : diff_match_patch timeout (default=0)
 wrap        : if true lines will always wrap on lineLength. Ignoring words and wihtespaces (default=false)
 ```
 
-### Previous Versions
+### All Versions
 Javascript
+- [jquery.picadiff-0.7.1.min.js](https://s3-eu-west-1.amazonaws.com/diffvisualisationwidget.js/jquery.picadiff-0.7.1.min.js)
+- [jquery.picadiff-0.7.1.js](https://s3-eu-west-1.amazonaws.com/diffvisualisationwidget.js/jquery.picadiff-0.7.1.js)
 - [jquery.picadiff-0.7.0.min.js](https://s3-eu-west-1.amazonaws.com/diffvisualisationwidget.js/jquery.picadiff-0.7.0.min.js)
 - [jquery.picadiff-0.7.0.js](https://s3-eu-west-1.amazonaws.com/diffvisualisationwidget.js/jquery.picadiff-0.7.0.js)
 - [jquery.diffvisualisationwidget-0.6.0.min.js](https://s3-eu-west-1.amazonaws.com/diffvisualisationwidget.js/jquery.diffvisualisationwidget-0.6.0.min.js)
@@ -90,6 +92,7 @@ Javascript
 
 
 CSS
+- [jquery.picadiff-0.7.1com.css](https://s3-eu-west-1.amazonaws.com/diffvisualisationwidget.js/jquery.picadiff-0.7.1.css)
 - [jquery.picadiff-0.7.0.css](https://s3-eu-west-1.amazonaws.com/diffvisualisationwidget.js/jquery.picadiff-0.7.0.css)
 - [diffvisualisationwidget-0.4.css](https://s3-eu-west-1.amazonaws.com/diffvisualisationwidget.js/diffvisualisationwidget-0.4.css) 
 - [diffvisualisationwidget-0.3.css](https://s3-eu-west-1.amazonaws.com/diffvisualisationwidget.js/diffvisualisationwidget-0.3.css)
