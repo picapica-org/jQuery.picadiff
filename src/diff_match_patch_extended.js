@@ -297,102 +297,113 @@ DiffHandler.prototype.alligned_texts_strict = function(diffs, maxchars){
 	return {"diss_html":diss_line.line, "source_html":source_line.line};
 };
 
-/**
- * Transforms a given array of words into a character string. Each desinct
- * word is encoded as the same character.
-*/
-diff_match_patch.prototype.words_to_characters = function(textarr){
-	var alphanumericRegExp = /\W/gi;
-	var openingSquareBracket = /\[(\w+|[a-z]+)\]/gi;
-	var textchars = "";
+jQuery.extend(diff_match_patch.prototype, {
+  normalize_word : function(word){
+    //normalises wikipedia references like "wikipedia[12]" => "wikipedia"
+    var openingSquareBracket = /\[(\w+|[a-z]+)\]$/gi;
 
-	for(var i in textarr){
-		var word = textarr[i];
-		var normalized_word = word.toLowerCase();
-		normalized_word = normalized_word.replace(openingSquareBracket, '').replace(alphanumericRegExp, '');
-		var character;
-		if(this.word_dict.hasOwnProperty(normalized_word)){
-			character = this.word_dict[normalized_word];
-			textchars += character;
-			if(this.char_dict[character].length !== (this.textnumber + 1)) {
-				this.char_dict[character].push([]);
-			}
-			var wordlist = this.char_dict[character][this.textnumber];
-			wordlist.push(word);
-			continue;
-		}
+    //filters all non-alphanumeric characters
+    var alphanumericRegExp = /\W/gi;
 
-		character = String.fromCharCode(this.charcode);
-		this.word_dict[normalized_word] = character;
-		this.char_dict[character] = [];
-		this.char_dict[character].push([]);
-		this.char_dict[character][this.textnumber] = [word];
-		this.charcode += 1;
-		textchars += character;
-	}
+    var normalized_word = word.toLowerCase();
+    normalized_word = normalized_word.replace(openingSquareBracket, '').replace(alphanumericRegExp, '');
+    return normalized_word;
+  },
 
-	this.textnumber += 1;
+  /**
+   * Transforms a given array of words into a character string. Each desinct
+   * word is encoded as the same character.
+  */
+  words_to_characters : function(textarr){
+    var textchars = "";
 
-	return textchars;
-};
+    for(var i in textarr){
+      var word = textarr[i];
+      var normalized_word = this.normalize_word(word);
+      var character;
+      if(this.word_dict.hasOwnProperty(normalized_word)){
+        character = this.word_dict[normalized_word];
+        textchars += character;
+        if(this.char_dict[character].length !== (this.textnumber + 1)) {
+          this.char_dict[character].push([]);
+        }
+        var wordlist = this.char_dict[character][this.textnumber];
+        wordlist.push(word);
+        continue;
+      }
 
-diff_match_patch.prototype.split_text = function(text){
-  text = text.replace(/\r|\n/g, ' ').replace(/\s+/g, ' ').trim();
-  if(text.length === 0) { return []; }
-  return text.split(/\s/g);
-};
+      character = String.fromCharCode(this.charcode);
+      this.word_dict[normalized_word] = character;
+      this.char_dict[character] = [];
+      this.char_dict[character].push([]);
+      this.char_dict[character][this.textnumber] = [word];
+      this.charcode += 1;
+      textchars += character;
+    }
 
-/**
- * Computes the diff on wordbase. This is an extention of the character based
- * diff computation of the google_diff_match_patch framework.
- * @return {Array} word based diff consisting of arrays, in which the first
- * element represents the operation (-1: DIFF_DELETE, 1: DIFF_INSERT,
- * 0:DIFF_EQUAL) and the second element the text of that was applied by this
- * operation.
-*/
-diff_match_patch.prototype.diff_wordbased = function(text1, text2, lebool){
-	var textarr1 = this.split_text(text1);
-	var textarr2 = this.split_text(text2);
-	this.word_dict = {};
-	this.charcode = 21;
-	this.textnumber = 0;
+    this.textnumber += 1;
 
-	this.char_dict= {};
-	var textchars1 = this.words_to_characters(textarr1);
-	var textchars2 = this.words_to_characters(textarr2);
+    return textchars;
+  },
+  split_text : function(text){
+    text = text.replace(/\r|\n/g, ' ').replace(/\s+/g, ' ').trim();
+    if(text.length === 0) { return []; }
+    return text.split(/\s/g);
+  },
+  /**
+   * Computes the diff on wordbase. This is an extention of the character based
+   * diff computation of the google_diff_match_patch framework.
+   * @return {Array} word based diff consisting of arrays, in which the first
+   * element represents the operation (-1: DIFF_DELETE, 1: DIFF_INSERT,
+   * 0:DIFF_EQUAL) and the second element the text of that was applied by this
+   * operation.
+  */
+  diff_wordbased : function(text1, text2, lebool){
+    var textarr1 = this.split_text(text1);
+    var textarr2 = this.split_text(text2);
+    this.word_dict = {};
+    this.charcode = 21;
+    this.textnumber = 0;
+
+    this.char_dict= {};
+    var textchars1 = this.words_to_characters(textarr1);
+    var textchars2 = this.words_to_characters(textarr2);
 
 
-	var diffs = this.diff_main(textchars1, textchars2, lebool);
-	var result = [];
-	for(var x = 0; x < diffs.length; x++){
-		var op = diffs[x][0];
-		var data = diffs[x][1];
-		var encodedstring = [];
-		var datarr = data.split("");
-		for(var i in datarr){
-			var character = datarr[i];
-			var character_entry = this.char_dict[character];
-			var nextword = [];
-			switch(op){
-				case DIFF_DELETE:
-					nextword = character_entry[0][0];
-					character_entry[0].splice(0,1);
-					break;
-				case DIFF_INSERT:
-					nextword = character_entry[1][0];
-					character_entry[1].splice(0,1);
-					break;
-				case DIFF_EQUAL:
-					nextword.push(character_entry[0][0]);
-					nextword.push(character_entry[1][0]);
-					character_entry[0].splice(0,1);
-					character_entry[1].splice(0,1);
-			}
-			encodedstring.push(nextword);
-			i += 1;
-		}
-		result.push([op,encodedstring]);
-	}
+    var diffs = this.diff_main(textchars1, textchars2, lebool);
+    var result = [];
+    for(var x = 0; x < diffs.length; x++){
+      var op = diffs[x][0];
+      var data = diffs[x][1];
+      var encodedstring = [];
+      var datarr = data.split("");
+      for(var i in datarr){
+        var character = datarr[i];
+        var character_entry = this.char_dict[character];
+        var nextword = [];
+        switch(op){
+          case DIFF_DELETE:
+            nextword = character_entry[0][0];
+            character_entry[0].splice(0,1);
+            break;
+          case DIFF_INSERT:
+            nextword = character_entry[1][0];
+            character_entry[1].splice(0,1);
+            break;
+          case DIFF_EQUAL:
+            nextword.push(character_entry[0][0]);
+            nextword.push(character_entry[1][0]);
+            character_entry[0].splice(0,1);
+            character_entry[1].splice(0,1);
+        }
+        encodedstring.push(nextword);
+        i += 1;
+      }
+      result.push([op,encodedstring]);
+    }
 
-	return result;
-};
+    return result;
+  }
+});
+
+

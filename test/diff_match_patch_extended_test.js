@@ -73,6 +73,31 @@
 
   });
 
+  test('normalize_word', function(){
+    var normalizedWord = this.diffHandler.normalize_word('test');
+    strictEqual(normalizedWord, 'test');
+
+    normalizedWord = this.diffHandler.normalize_word('test123');
+    strictEqual(normalizedWord, 'test123');
+
+    normalizedWord = this.diffHandler.normalize_word('123');
+    strictEqual(normalizedWord, '123');
+
+    // non-alphanumerics
+    normalizedWord = this.diffHandler.normalize_word('test.');
+    strictEqual(normalizedWord, 'test');
+
+    normalizedWord = this.diffHandler.normalize_word('"test"');
+    strictEqual(normalizedWord, 'test');
+
+    // wikipedia citations
+    normalizedWord = this.diffHandler.normalize_word('test[123]');
+    strictEqual(normalizedWord, 'test');
+
+    normalizedWord = this.diffHandler.normalize_word('test[123]test');
+    strictEqual(normalizedWord, 'test123test');
+  });
+
   //test diff wordbased
   //-1: DIFF_DELETE, 1: DIFF_INSERT, 0:DIFF_EQUAL
   test('diff_wordbased', function(){
@@ -163,11 +188,6 @@
 
     // wikipedia-like citation brackets with subsequent word
     diffArray = this.diffHandler.diff_wordbased('test[3] test2', 'test test2', false);
-    strictEqual(diffArray.length, 1);
-    strictEqual(diffArray[0][0], 0, 'should be the equal part');
-
-    // wikipedia-like citation in word. Should this really be equal??
-    diffArray = this.diffHandler.diff_wordbased('test[3]test2', 'testtest2', false);
     strictEqual(diffArray.length, 1);
     strictEqual(diffArray[0][0], 0, 'should be the equal part');
 
