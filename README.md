@@ -7,7 +7,9 @@ A small widget for visualizing text reuse of two texts.
 ![screenshot](https://dl.dropboxusercontent.com/u/1461704/diff-screenshot.jpg)
 
 ## Getting Started
-Download the [production version][min] or the [development version][max], the [css][css]. Dependencies are the [diff_match_patch library][diff_match_patch] and the [Webfont Loader][webfont_loader] (which is optinal).
+Download the [production version][min] or the [development version][max] and the [CSS file][css]. 
+
+Dependencies are the [diff_match_patch library][diff_match_patch] and the [Webfont Loader][webfont_loader] (which is optional).
 
 [min]:https://s3-eu-west-1.amazonaws.com/diffvisualisationwidget.js/jquery.picadiff-0.7.1.min.js
 [max]:https://s3-eu-west-1.amazonaws.com/diffvisualisationwidget.js/jquery.picadiff-0.7.1.js
@@ -38,11 +40,6 @@ In your web page:
 <script>
     $(".picadiff").picadiff();
 </script>
-``
-
-If you use this structure you can apply the widget by calling:
-```javascript
-$(".picadiff").picadiff();
 ```
 
 ## Documentation
@@ -86,7 +83,9 @@ Javascript
 - [diffvisualisationwidget-0.3.js](https://s3-eu-west-1.amazonaws.com/diffvisualisationwidget.js/diffvisualisationwidget-0.3.js)
 - [diffvisualisationwidget-0.2.min.js](https://s3-eu-west-1.amazonaws.com/diffvisualisationwidget.js/diffvisualisationwidget-0.2.min.js)
 - [diffvisualisationwidget-0.2.js](https://s3-eu-west-1.amazonaws.com/diffvisualisationwidget.js/diffvisualisationwidget-0.2.js)
-Css
+
+
+CSS
 - [jquery.picadiff-0.7.0.css](https://s3-eu-west-1.amazonaws.com/diffvisualisationwidget.js/jquery.picadiff-0.7.0.css)
 - [diffvisualisationwidget-0.4.css](https://s3-eu-west-1.amazonaws.com/diffvisualisationwidget.js/diffvisualisationwidget-0.4.css) 
 - [diffvisualisationwidget-0.3.css](https://s3-eu-west-1.amazonaws.com/diffvisualisationwidget.js/diffvisualisationwidget-0.3.css)
@@ -98,7 +97,7 @@ An example can be found in ```/usage/index.html```
 v0.7.1
 - renamed title to .picadiff-title
 - added options for character wrapping and line length
-- added and tested normalize_function to diff_match_patch extension
+- added and tested normalize_word function to diff_match_patch extension
 
 
 v0.7.0
