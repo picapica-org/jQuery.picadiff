@@ -1,4 +1,4 @@
-jQuery.picadiff [![Build Status](https://travis-ci.org/picapica-net/jQuery.picadiff.png?branch=v0.7.0)](https://travis-ci.org/picapica-net/jQuery.picadiff)
+jQuery.picadiff [![Build Status](https://travis-ci.org/picapica-net/jQuery.picadiff.png?branch=v0.7.1)](https://travis-ci.org/picapica-net/jQuery.picadiff)
 ==========================
 
 ## About
@@ -6,7 +6,101 @@ A small widget for visualizing text reuse of two texts.
 
 ![screenshot](https://dl.dropboxusercontent.com/u/1461704/diff-screenshot.jpg)
 
-## Recent Changes
+## Getting Started
+Download the [production version][min] or the [development version][max], the [css][css]. Dependencies are the [diff_match_patch library][diff_match_patch] and the [Webfont Loader][webfont_loader] (which is optinal).
+
+[min]:https://s3-eu-west-1.amazonaws.com/diffvisualisationwidget.js/jquery.picadiff-0.7.1.min.js
+[max]:https://s3-eu-west-1.amazonaws.com/diffvisualisationwidget.js/jquery.picadiff-0.7.1.js
+[css]:https://s3-eu-west-1.amazonaws.com/diffvisualisationwidget.js/jquery.picadiff-0.7.1.css
+[diff_match_patch]:https://code.google.com/p/google-diff-match-patch/
+[webfont_loader]:https://github.com/typekit/webfontloader
+
+In your web page:
+```html
+
+<script src="jquery.js"></script>
+<script src="diff_match_patch.js"></script>
+<script src="webfont.js"></script>
+<script src="jquery.picadiff-0.7.1.min.js"></script> 
+<link rel="stylesheet" type="text/css" href="css/jquery.picadiff-0.7.1.css"/>
+
+<div class="picadiff">
+  <div class="picadiff-title">
+    <div class="left">LeftTitle</div>
+    <div class="right">RightTitle</div>
+  </div>
+  <div class="picadiff-content">
+    <div class="left">Left content you want do diff</div>
+    <div class="right">Right content you want do diff</div>
+  </div>
+</div>
+
+<script>
+    $(".picadiff").picadiff();
+</script>
+``
+
+If you use this structure you can apply the widget by calling:
+```javascript
+$(".picadiff").picadiff();
+```
+
+## Documentation
+
+### Options
+You can add options when calling ```picadiff```.
+
+```javascript
+$(".picadiff").picadiff(options)
+```
+
+All these parameters are optional:
+
+```
+leftContainer : CSS identificator of the left container (default=".left")
+rightContainer  : CSS identificator of the right container (default=".right")
+contentContainer: CSS identificator of the content containers.
+  Must be inside the right and left container (default=".picadiff-content")
+leftContent : Content to diff as left side. Set this parameter if you don't
+  want the widget to search for the content.
+rightContent  : Content to diff as right side. Set this parameter if you don't
+  want the widget to search for the content.
+lineLength  : maxmimum number of chars per line (default=40)
+timeout     : diff_match_patch timeout (default=0)
+wrap        : if true lines will always wrap on lineLength. Ignoring words and wihtespaces (default=false)
+```
+
+### Previous Versions
+Javascript
+- [jquery.picadiff-0.7.0.min.js](https://s3-eu-west-1.amazonaws.com/diffvisualisationwidget.js/jquery.picadiff-0.7.0.min.js)
+- [jquery.picadiff-0.7.0.js](https://s3-eu-west-1.amazonaws.com/diffvisualisationwidget.js/jquery.picadiff-0.7.0.js)
+- [jquery.diffvisualisationwidget-0.6.0.min.js](https://s3-eu-west-1.amazonaws.com/diffvisualisationwidget.js/jquery.diffvisualisationwidget-0.6.0.min.js)
+- [jquery.diffvisualisationwidget-0.6.0.js](https://s3-eu-west-1.amazonaws.com/diffvisualisationwidget.js/jquery.diffvisualisationwidget-0.6.0.js)
+- [diffvisualisationwidget-0.5.1.min.js](https://s3-eu-west-1.amazonaws.com/diffvisualisationwidget.js/diffvisualisationwidget-0.5.1.min.js)
+- [diffvisualisationwidget-0.5.1.js](https://s3-eu-west-1.amazonaws.com/diffvisualisationwidget.js/diffvisualisationwidget-0.5.1.js)
+- [diffvisualisationwidget-0.5.min.js](https://s3-eu-west-1.amazonaws.com/diffvisualisationwidget.js/diffvisualisationwidget-0.5.min.js)
+- [diffvisualisationwidget-0.5.js](https://s3-eu-west-1.amazonaws.com/diffvisualisationwidget.js/diffvisualisationwidget-0.5.js)
+- [diffvisualisationwidget-0.4.min.js](https://s3-eu-west-1.amazonaws.com/diffvisualisationwidget.js/diffvisualisationwidget-0.4.min.js)
+- [diffvisualisationwidget-0.4.js](https://s3-eu-west-1.amazonaws.com/diffvisualisationwidget.js/diffvisualisationwidget-0.4.js)
+- [diffvisualisationwidget-0.3.min.js](https://s3-eu-west-1.amazonaws.com/diffvisualisationwidget.js/diffvisualisationwidget-0.3.min.js)
+- [diffvisualisationwidget-0.3.js](https://s3-eu-west-1.amazonaws.com/diffvisualisationwidget.js/diffvisualisationwidget-0.3.js)
+- [diffvisualisationwidget-0.2.min.js](https://s3-eu-west-1.amazonaws.com/diffvisualisationwidget.js/diffvisualisationwidget-0.2.min.js)
+- [diffvisualisationwidget-0.2.js](https://s3-eu-west-1.amazonaws.com/diffvisualisationwidget.js/diffvisualisationwidget-0.2.js)
+Css
+- [jquery.picadiff-0.7.0.css](https://s3-eu-west-1.amazonaws.com/diffvisualisationwidget.js/jquery.picadiff-0.7.0.css)
+- [diffvisualisationwidget-0.4.css](https://s3-eu-west-1.amazonaws.com/diffvisualisationwidget.js/diffvisualisationwidget-0.4.css) 
+- [diffvisualisationwidget-0.3.css](https://s3-eu-west-1.amazonaws.com/diffvisualisationwidget.js/diffvisualisationwidget-0.3.css)
+
+## Examples
+An example can be found in ```/usage/index.html```
+
+## Release History
+v0.7.1
+- renamed title to .picadiff-title
+- added options for character wrapping and line length
+- added and tested normalize_function to diff_match_patch extension
+
+
 v0.7.0
 - renamed project to jQuery.picadiff
 - added tests
@@ -44,76 +138,3 @@ v0.3
 v0.2
 - changed API to use jQuery
 - data is now read from structured html
-
-## Installation
-1. Download latest javascript (minified version is recommended)
-  - [jquery.picadiff-0.7.0.min.js](https://s3-eu-west-1.amazonaws.com/diffvisualisationwidget.js/jquery.picadiff-0.7.0.min.js)
-  - [jquery.picadiff-0.7.0.js](https://s3-eu-west-1.amazonaws.com/diffvisualisationwidget.js/jquery.picadiff-0.7.0.js)
-  - [jquery.diffvisualisationwidget-0.6.0.min.js](https://s3-eu-west-1.amazonaws.com/diffvisualisationwidget.js/jquery.diffvisualisationwidget-0.6.0.min.js)
-  - [jquery.diffvisualisationwidget-0.6.0.js](https://s3-eu-west-1.amazonaws.com/diffvisualisationwidget.js/jquery.diffvisualisationwidget-0.6.0.js)
-  - [diffvisualisationwidget-0.5.1.min.js](https://s3-eu-west-1.amazonaws.com/diffvisualisationwidget.js/diffvisualisationwidget-0.5.1.min.js)
-  - [diffvisualisationwidget-0.5.1.js](https://s3-eu-west-1.amazonaws.com/diffvisualisationwidget.js/diffvisualisationwidget-0.5.1.js)
-  - [diffvisualisationwidget-0.5.min.js](https://s3-eu-west-1.amazonaws.com/diffvisualisationwidget.js/diffvisualisationwidget-0.5.min.js)
-  - [diffvisualisationwidget-0.5.js](https://s3-eu-west-1.amazonaws.com/diffvisualisationwidget.js/diffvisualisationwidget-0.5.js)
-  - [diffvisualisationwidget-0.4.min.js](https://s3-eu-west-1.amazonaws.com/diffvisualisationwidget.js/diffvisualisationwidget-0.4.min.js)
-  - [diffvisualisationwidget-0.4.js](https://s3-eu-west-1.amazonaws.com/diffvisualisationwidget.js/diffvisualisationwidget-0.4.js)
-  - [diffvisualisationwidget-0.3.min.js](https://s3-eu-west-1.amazonaws.com/diffvisualisationwidget.js/diffvisualisationwidget-0.3.min.js)
-  - [diffvisualisationwidget-0.3.js](https://s3-eu-west-1.amazonaws.com/diffvisualisationwidget.js/diffvisualisationwidget-0.3.js)
-  - [diffvisualisationwidget-0.2.min.js](https://s3-eu-west-1.amazonaws.com/diffvisualisationwidget.js/diffvisualisationwidget-0.2.min.js)
-  - [diffvisualisationwidget-0.2.js](https://s3-eu-west-1.amazonaws.com/diffvisualisationwidget.js/diffvisualisationwidget-0.2.js)
-2. Download latest CSS
-  - [jquery.picadiff-0.7.0.css](https://s3-eu-west-1.amazonaws.com/diffvisualisationwidget.js/jquery.picadiff-0.7.0.css) (recommended)
-  - [diffvisualisationwidget-0.4.css](https://s3-eu-west-1.amazonaws.com/diffvisualisationwidget.js/diffvisualisationwidget-0.4.css) 
-  - [diffvisualisationwidget-0.3.css](https://s3-eu-west-1.amazonaws.com/diffvisualisationwidget.js/diffvisualisationwidget-0.3.css)
-3. Download and include required dependencies:
-	- [jQuery](http://jquery.com/)
-	- [google-diff-match-patch](https://code.google.com/p/google-diff-match-patch/)
-	- [Webfont Loader](https://github.com/typekit/webfontloader) (optional)
-4.  Include it:
-
-	```html
-	<link rel="stylesheet" type="text/css" href="css/jquery.picadiff-0.7.0.css"/>
-	...
-	<script src="/js/jquery.picadiff-0.7.0.min.js"></script>
-	```
-
-5. Use it in your code:
-
-	```javascript
-	$(".picadiff").picadiff(options);
-	```
-
-## Usage
-### Use of standard DOM structure
-```html
-<div class="picadiff">
-	<div class="title">
-		<div class="left">LeftTitle</div>
-		<div class="right">RightTitle</div>
-	</div>
-	<div class="picadiff-content">
-		<div class="left">Left content you want do diff</div>
-		<div class="right">Right content you want do diff</div>
-	</div>
-</div>
-```
-
-If you use this structure you can apply the widget by calling:
-```javascript
-$(".picadiff").picadiff();
-```
-
-### Options
-All these parameters are optional
-
-```
-leftContainer	: CSS identificator of the left container (default=".left")
-rightContainer	: CSS identificator of the right container (default=".right")
-contentContainer: CSS identificator of the content containers.
-	Must be inside the right and left container (default=".picadiff-content")
-leftContent	: Content to diff as left side. Set this parameter if you don't
-	want the widget to search for the content.
-rightContent	: Content to diff as right side. Set this parameter if you don't
-	want the widget to search for the content.
-timeout			: diff_match_patch timeout (default=0)
-```
