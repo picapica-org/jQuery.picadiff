@@ -5,12 +5,18 @@
   <title>DiffVisualisationWidget Test Suite</title>
   <!-- Load local jQuery. -->
   <script src="../bower_components/jquery/jquery.js"></script>
+  <!-- Load local google-diff-match-patch -->
+  <script src="../bower_components/google-diff-match-patch-js/diff_match_patch.js"></script>
   <!-- Load local QUnit. -->
   <link rel="stylesheet" href="../bower_components/qunit/qunit/qunit.css" media="screen">
   <script src="../bower_components/qunit/qunit/qunit.js"></script>
   <!-- Load local lib and tests. -->
-  <script src="../src/diffvisualisationwidget.js"></script>
-  <script src="diffvisualisationwidget_test.js"></script>
+  <script src="../src/diff_match_patch_extended.js"></script>
+  <script src="../src/picadiff.js"></script>
+
+  <script src="diff_match_patch_extended_test.js"></script>
+  <script src="picadiff_test.js"></script>
+
   <!-- Removing access to jQuery and $. But it'll still be available as _$, if
        you REALLY want to mess around with jQuery in the console. REMEMBER WE
        ARE TESTING A PLUGIN HERE, THIS HELPS ENSURE BEST PRACTICES. REALLY. -->

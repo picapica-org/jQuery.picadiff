@@ -1,38 +1,38 @@
 @charset "UTF-8";
 
-.diffVisualisation {
+.picadiff {
   overflow: hidden;
 
   padding-top: 0 !important; }
-  .diffVisualisation .comparisoncontrol {
+  .picadiff .comparisoncontrol {
     height: 40px;
     width: 100%; }
-    .diffVisualisation .comparisoncontrol .controlButtons {
+    .picadiff .comparisoncontrol .controlButtons {
       float: right;
       margin-right: 10px;
       border: 1px solid #d3d3d3;
       border-top: 0;
       border-bottom-left-radius: 5px;
       border-bottom-right-radius: 5px; }
-      .diffVisualisation .comparisoncontrol .controlButtons button {
+      .picadiff .comparisoncontrol .controlButtons button {
         font-size: 11px;
         float: left;
         margin: 0;
         border-radius: 0;
         border: 0; }
-        .diffVisualisation .comparisoncontrol .controlButtons button.active {
+        .picadiff .comparisoncontrol .controlButtons button.active {
           background-color: white; }
-        .diffVisualisation .comparisoncontrol .controlButtons button.over {
+        .picadiff .comparisoncontrol .controlButtons button.over {
           border-right: 0;
           border-bottom-left-radius: 4px; }
-        .diffVisualisation .comparisoncontrol .controlButtons button.align {
+        .picadiff .comparisoncontrol .controlButtons button.align {
           border-right: 1px solid grey;
           border-left: 1px solid grey; }
-        .diffVisualisation .comparisoncontrol .controlButtons button.wrap {
+        .picadiff .comparisoncontrol .controlButtons button.wrap {
           border-left: 0;
           border-bottom-right-radius: 4px; }
-  .diffVisualisation .right, .diffVisualisation .left {
-    
+  .picadiff .right, .picadiff .left {
+
     width: 45%;
     padding: 10px 2.5%;
     overflow: auto;
@@ -40,28 +40,28 @@
     font-size: 13px;
     /*max-height:400px;*/ }
 
-    .diffVisualisation .right{
+    .picadiff .right{
         margin-left: 50%;
     }
-    .diffVisualisation .left{
+    .picadiff .left{
         float: left;
     }
 
-    .diffVisualisation .right .title, .diffVisualisation .left .title {
+    .picadiff .right .title, .picadiff .left .title {
       color: #000;
       margin: 0 0 10px 0; }
-    .diffVisualisation .diffvisualisation-content {
+    .picadiff .picadiff-content {
       font-family: 'Source Code Pro',monospace;
       width: 100%;
       overflow: hidden; }
-    .diffVisualisation .right .equal, .diffVisualisation .left .equal {
+    .picadiff .right .equal, .picadiff .left .equal {
       /*color: white;*/
       background-color: #a8d975;
       /*font-weight: bold;*/
       /*border-bottom: 1px solid;*/ }
-    .diffVisualisation .right .light, .diffVisualisation .left .light {
+    .picadiff .right .light, .picadiff .left .light {
       background-color: #aaa; }
-    .diffVisualisation .right .insertion, .diffVisualisation .left .insertion {
+    .picadiff .right .insertion, .picadiff .left .insertion {
       /*color:#c61818;*/ }
 
 .blendingView .diffcontent {

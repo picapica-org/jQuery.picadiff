@@ -7,6 +7,15 @@ A small widget for visualizing text reuse of two texts.
 ![screenshot](https://dl.dropboxusercontent.com/u/1461704/diff-screenshot.jpg)
 
 ## Recent Changes
+v0.7.0
+- renamed project to jQuery.picadiff
+- added tests
+- js consists only of two scripts now
+- updated css class names
+- updated usage example
+- removed unused functions
+- removed html_entitiy_decode
+
 v0.6.0
 - refactored to a yeoman app
 - removed backbone.js and underscore.js dependencies
@@ -38,9 +47,11 @@ v0.2
 
 ## Installation
 1. Download latest javascript (minified version is recommended)
-	- [jquery.diffvisualisationwidget-0.6.0.min.js](https://s3-eu-west-1.amazonaws.com/diffvisualisationwidget.js/jquery.diffvisualisationwidget-0.6.0.min.js) (recommended)
+  - [jquery.picadiff-0.7.0.min.js](https://s3-eu-west-1.amazonaws.com/diffvisualisationwidget.js/jquery.picadiff-0.7.0.min.js)
+  - [jquery.picadiff-0.7.0.js](https://s3-eu-west-1.amazonaws.com/diffvisualisationwidget.js/jquery.picadiff-0.7.0.js)
+	- [jquery.diffvisualisationwidget-0.6.0.min.js](https://s3-eu-west-1.amazonaws.com/diffvisualisationwidget.js/jquery.diffvisualisationwidget-0.6.0.min.js)
 	- [jquery.diffvisualisationwidget-0.6.0.js](https://s3-eu-west-1.amazonaws.com/diffvisualisationwidget.js/jquery.diffvisualisationwidget-0.6.0.js)
-	- [diffvisualisationwidget-0.5.1.min.js](https://s3-eu-west-1.amazonaws.com/diffvisualisationwidget.js/diffvisualisationwidget-0.5.1.min.js) (recommended)
+	- [diffvisualisationwidget-0.5.1.min.js](https://s3-eu-west-1.amazonaws.com/diffvisualisationwidget.js/diffvisualisationwidget-0.5.1.min.js)
 	- [diffvisualisationwidget-0.5.1.js](https://s3-eu-west-1.amazonaws.com/diffvisualisationwidget.js/diffvisualisationwidget-0.5.1.js)
 	- [diffvisualisationwidget-0.5.min.js](https://s3-eu-west-1.amazonaws.com/diffvisualisationwidget.js/diffvisualisationwidget-0.5.min.js)
 	- [diffvisualisationwidget-0.5.js](https://s3-eu-west-1.amazonaws.com/diffvisualisationwidget.js/diffvisualisationwidget-0.5.js)
@@ -51,7 +62,8 @@ v0.2
 	- [diffvisualisationwidget-0.2.min.js](https://s3-eu-west-1.amazonaws.com/diffvisualisationwidget.js/diffvisualisationwidget-0.2.min.js)
 	- [diffvisualisationwidget-0.2.js](https://s3-eu-west-1.amazonaws.com/diffvisualisationwidget.js/diffvisualisationwidget-0.2.js)
 2. Download latest CSS
-	- [diffvisualisationwidget-0.4.css](https://s3-eu-west-1.amazonaws.com/diffvisualisationwidget.js/diffvisualisationwidget-0.4.css) (recommended)
+  - [jquery.picadiff-0.7.0.css](https://s3-eu-west-1.amazonaws.com/diffvisualisationwidget.js/jquery.picadiff-0.7.0.css) (recommended)
+	- [diffvisualisationwidget-0.4.css](https://s3-eu-west-1.amazonaws.com/diffvisualisationwidget.js/diffvisualisationwidget-0.4.css) 
 	- [diffvisualisationwidget-0.3.css](https://s3-eu-west-1.amazonaws.com/diffvisualisationwidget.js/diffvisualisationwidget-0.3.css)
 3. Download and include required dependencies:
 	- [jQuery](http://jquery.com/)
@@ -60,26 +72,26 @@ v0.2
 4.  Include it:
 
 	```html
-	<link rel="stylesheet" type="text/css" href="css/diffvisualisationwidget-0.4.css"/>
+	<link rel="stylesheet" type="text/css" href="css/jquery.picadiff-0.7.0.css"/>
 	...
-	<script src="/js/jquery.diffvisualisationwidget-0.6.0.min.js"></script>
+	<script src="/js/jquery.picadiff-0.7.0.min.js"></script>
 	```
 
 5. Use it in your code:
 
 	```javascript
-	$(".diffVisualisation").applyDiffWidget(options);
+	$(".picadiff").picadiff(options);
 	```
 
 ## Usage
 ### Use of standard DOM structure
 ```html
-<div class="diffVisualisation">
+<div class="picadiff">
 	<div class="title">
 		<div class="left">LeftTitle</div>
 		<div class="right">RightTitle</div>
 	</div>
-	<div class="diffvisualisation-content">
+	<div class="picadiff-content">
 		<div class="left">Left content you want do diff</div>
 		<div class="right">Right content you want do diff</div>
 	</div>
@@ -88,7 +100,7 @@ v0.2
 
 If you use this structure you can apply the widget by calling:
 ```javascript
-$(".diffVisualisation").applyDiffWidget();
+$(".picadiff").picadiff();
 ```
 
 ### Options
@@ -98,7 +110,7 @@ All these parameters are optional
 leftContainer	: CSS identificator of the left container (default=".left")
 rightContainer	: CSS identificator of the right container (default=".right")
 contentContainer: CSS identificator of the content containers.
-	Must be inside the right and left container (default=".diffvisualisation-content")
+	Must be inside the right and left container (default=".picadiff-content")
 leftContent	: Content to diff as left side. Set this parameter if you don't
 	want the widget to search for the content.
 rightContent	: Content to diff as right side. Set this parameter if you don't

@@ -1,8 +1,101 @@
 /* global diff_match_patch */
-/* global Allignment */
 /* global DIFF_INSERT */
 /* global DIFF_DELETE */
 /* global DIFF_EQUAL */
+
+/**
+ * Class for controling the alignment (number of linebreaks) of a text and the
+ * wrapping of a text.
+ * @module lib/Alignment
+ */
+var Alignment = function(){
+  this.linecount = 0;
+  this.wordcount = 0;
+  this.charcount = 0;
+  this.maxchars = 10;
+  this.line = "";
+};
+
+
+/**
+ * Appends a text with word wrapping after specified number of characters
+*/
+
+Alignment.prototype.append = function(text, classname){
+  var textsplit = text.split(" ");
+  if(classname) {
+    this.line += '<span class="'+classname+'">';
+  }
+  for(var i in textsplit){
+    this.charcount += textsplit[i].length + 1;
+    this.wordcount += 1;
+    if(this.charcount> this.maxchars){
+      this.line += "<br>";
+      this.linecount += 1;
+      this.charcount = textsplit[i].length;
+      this.wordcount = 1;
+    }
+
+    this.line += textsplit[i] + " ";
+
+  }
+  this.line = this.line.trim();
+  if(classname) {
+    this.line += "</span> ";
+  }
+};
+
+/**
+ * Appends a text with character wrapping after specified number of characters
+*/
+Alignment.prototype.appendStrict = function(text, classname){
+  var textsplit = text.split("");
+  if(classname){
+    this.line += '<span class="'+classname+'">';
+  }
+  for(var i in textsplit){
+    if(this.charcount > 0 && this.charcount % this.maxchars === 0){
+      this.line += "<br>";
+      this.linecount += 1;
+      this.charcount = 0;
+    }
+    if(!(/^\s/g.test(textsplit[i]) && this.charcount === 0)){
+      this.charcount += 1;
+    }
+    this.line += textsplit[i];
+  }
+  if(classname) {
+    this.line += "</span>";
+  }
+};
+
+
+/**
+ * Sets the specified linecount. Corresponding to the linecount, linebreaks are
+ * added to the text.
+*/
+Alignment.prototype.setLineCountTo = function(linecount){
+  if(linecount === 0) { return; }
+  while(this.linecount <= linecount){
+    this.line += "<br>";
+    this.wordcount = 0;
+    this.charcount = 0;
+    this.linecount += 1;
+  }
+};
+
+
+/**
+ * Sets the charactercount of the current line to a specified number.
+ * Corresponding to the number of characters, nonbreaking spaces are added to
+ * the current line.
+*/
+Alignment.prototype.setCharCountTo = function(charcount){
+  while(this.charcount <= charcount){
+    this.line += "&nbsp;";
+    this.charcount +=1;
+  }
+};
 
 /**
  * Class that extends the diff_match_patch class of the google framework with a
@@ -120,8 +213,8 @@ var dataArraytoString2D = function(datarr, dim){
  * @return {Object} aligned dissertation text and source text
 */
 DiffHandler.prototype.alligned_texts = function(diffs, maxchars){
-	var source_line = new Allignment();
-	var diss_line = new Allignment();
+	var source_line = new Alignment();
+	var diss_line = new Alignment();
 
 	source_line.maxchars=maxchars;
 	diss_line.maxchars=maxchars;
@@ -159,7 +252,6 @@ DiffHandler.prototype.alligned_texts = function(diffs, maxchars){
 
 };
 
-
 /**
  * Constructs a HTML representation of the diff with alignment of the equal
  * source and dissertation lines. Linebreaks are set after the specified number
@@ -167,8 +259,8 @@ DiffHandler.prototype.alligned_texts = function(diffs, maxchars){
  * @return {Object} aligned dissertation text and source text
 */
 DiffHandler.prototype.alligned_texts_strict = function(diffs, maxchars){
-	var source_line = new Allignment();
-	var diss_line = new Allignment();
+	var source_line = new Alignment();
+	var diss_line = new Alignment();
 
 	source_line.maxchars = maxchars;
 	diss_line.maxchars = maxchars;
@@ -244,6 +336,12 @@ diff_match_patch.prototype.words_to_characters = function(textarr){
 	return textchars;
 };
 
+diff_match_patch.prototype.split_text = function(text){
+  text = text.replace(/\r|\n/g, ' ').replace(/\s+/g, ' ').trim();
+  if(text.length === 0) { return []; }
+  return text.split(/\s/g);
+};
+
 /**
  * Computes the diff on wordbase. This is an extention of the character based
  * diff computation of the google_diff_match_patch framework.
@@ -253,10 +351,8 @@ diff_match_patch.prototype.words_to_characters = function(textarr){
  * operation.
 */
 diff_match_patch.prototype.diff_wordbased = function(text1, text2, lebool){
-	text1 = text1.replace(/\r|\n/g, ' ').replace(/ +/g, ' ');
-	text2 = text2.replace(/\r|\n/g, ' ').replace(/ +/g, ' ');
-	var textarr1 = text1.split(/\s/g);
-	var textarr2 = text2.split(/\s/g);
+	var textarr1 = this.split_text(text1);
+	var textarr2 = this.split_text(text2);
 	this.word_dict = {};
 	this.charcode = 21;
 	this.textnumber = 0;

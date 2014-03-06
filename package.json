@@ -1,13 +1,13 @@
 {
-  "name": "diffvisualisationwidget",
-  "version": "0.6.0",
-  "description": "DiffVisualisationWidget",
+  "name": "picadiff",
+  "version": "0.7.0",
+  "description": "Shows diff of two texts.",
   "keywords": [
     "jquery-plugin"
   ],
-  "homepage": "https://github.com/picapica-net/diffvisualisationwidget",
-  "bugs": { 
-    "url" : "https://github.com/picapica-net/DiffVisualisationWidget.js/issues",
+  "homepage": "https://github.com/picapica-net/jQuery.picadiff",
+  "bugs": {
+    "url" : "https://github.com/picapica-net/jQuery.picadiff/issues",
     "email" : "jan.grassegger@picapica.org"
   },
   "author": {
@@ -17,7 +17,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/picapica-net/diffvisualisationwidget.git"
+    "url": "https://github.com/picapica-net/jQuery.picadiff"
   },
   "licenses": [
     {

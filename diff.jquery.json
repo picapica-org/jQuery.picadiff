@@ -1,19 +1,19 @@
 {
-  "name": "diffvisualisationwidget",
-  "title": "DiffVisualisationWidget",
+  "name": "picadiff",
+  "title": "jQuery.picadiff",
   "description": "A small widget for visualizing text reuse of two texts.",
-  "version": "0.6.0",
-  "homepage": "https://github.com/picapica-net/DiffVisualisationWidget.js",
+  "version": "0.7.0",
+  "homepage": "https://github.com/picapica-net/jQuery.picadiff",
   "author": {
     "name": "Jan Graßegger",
     "url": "https://github.com/picapica-net"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/picapica-net/DiffVisualisationWidget.js"
+    "url": "https://github.com/picapica-net/jQuery.picadiff"
   },
-  "bugs": { 
-    "url" : "https://github.com/picapica-net/DiffVisualisationWidget.js/issues",
+  "bugs": {
+    "url" : "https://github.com/picapica-net/jQuery.picadiff/issues",
     "email" : "jan.grassegger@picapica.org"},
   "licenses": [
     {
