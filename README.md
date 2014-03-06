@@ -19,8 +19,8 @@ Dependencies are the [diff_match_patch library][diff_match_patch] and the [Webfo
 
 In your web page:
 ```html
-...
-<link rel="stylesheet" type="text/css" href="css/jquery.picadiff-0.7.1.css"/>
+  ...
+  <link rel="stylesheet" type="text/css" href="css/jquery.picadiff-0.7.1.css"/>
 </head>
 <body>
 ...
@@ -44,6 +44,7 @@ In your web page:
   <script>
       $(".picadiff").picadiff();
   </script>
+  ...
 ```
 
 ## Documentation
