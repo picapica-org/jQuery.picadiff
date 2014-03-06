@@ -63,8 +63,8 @@ v0.2
   - [diffvisualisationwidget-0.2.js](https://s3-eu-west-1.amazonaws.com/diffvisualisationwidget.js/diffvisualisationwidget-0.2.js)
 2. Download latest CSS
   - [jquery.picadiff-0.7.0.css](https://s3-eu-west-1.amazonaws.com/diffvisualisationwidget.js/jquery.picadiff-0.7.0.css) (recommended)
-	- [diffvisualisationwidget-0.4.css](https://s3-eu-west-1.amazonaws.com/diffvisualisationwidget.js/diffvisualisationwidget-0.4.css) 
-	- [diffvisualisationwidget-0.3.css](https://s3-eu-west-1.amazonaws.com/diffvisualisationwidget.js/diffvisualisationwidget-0.3.css)
+  - [diffvisualisationwidget-0.4.css](https://s3-eu-west-1.amazonaws.com/diffvisualisationwidget.js/diffvisualisationwidget-0.4.css) 
+  - [diffvisualisationwidget-0.3.css](https://s3-eu-west-1.amazonaws.com/diffvisualisationwidget.js/diffvisualisationwidget-0.3.css)
 3. Download and include required dependencies:
 	- [jQuery](http://jquery.com/)
 	- [google-diff-match-patch](https://code.google.com/p/google-diff-match-patch/)
