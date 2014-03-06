@@ -47,7 +47,7 @@
         float: left;
     }
 
-    .picadiff .right .title, .picadiff .left .title {
+    .picadiff .picadiff-title .right , .picadiff .picadiff-title .left {
       color: #000;
       margin: 0 0 10px 0; }
     .picadiff .picadiff-content {
@@ -63,46 +63,3 @@
       background-color: #aaa; }
     .picadiff .right .insertion, .picadiff .left .insertion {
       /*color:#c61818;*/ }
-
-.blendingView .diffcontent {
-  margin-top: 10px;
-  width: 754;
-  float: left; }
-.blendingView h5 {
-  margin: 10px 0px 5px 10px; }
-.blendingView .equal {
-  color: black; }
-.blendingView .edit {
-  /*display: inline-block;*/
-  position: relative;
-  word-wrap: break-word;
-  background-color: white; }
-  .blendingView .edit .deletion {
-    /* Source Text */
-    background-color: white; }
-  .blendingView .edit .insertion {
-    /* Dissertation Text */
-    background-color: white; }
-
-
-/* custom jquery ui icons */
-.ui-icon-bigarrow-n {
-  background-position: -48px -241px; }
-
-.ui-icon-bigarrow-e {
-  background-position: -64px -240px; }
-
-.ui-icon-bigarrow-s {
-  background-position: -80px -241px; }
-
-.ui-icon-bigarrow-w {
-  background-position: -96px -240px; }
-
-.ui-icon-sort {
-  background-position: 0px -240px; }
-
-.ui-icon-view-normal {
-  background-position: -16px -240px; }
-
-.ui-icon-view-compact {
-  background-position: -32px -240px; }
