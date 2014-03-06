@@ -19,27 +19,31 @@ Dependencies are the [diff_match_patch library][diff_match_patch] and the [Webfo
 
 In your web page:
 ```html
-
-<script src="jquery.js"></script>
-<script src="diff_match_patch.js"></script>
-<script src="webfont.js"></script>
-<script src="jquery.picadiff-0.7.1.min.js"></script> 
+...
 <link rel="stylesheet" type="text/css" href="css/jquery.picadiff-0.7.1.css"/>
+</head>
+<body>
+...
 
-<div class="picadiff">
-  <div class="picadiff-title">
-    <div class="left">LeftTitle</div>
-    <div class="right">RightTitle</div>
+  <div class="picadiff">
+    <div class="picadiff-title">
+      <div class="left">LeftTitle</div>
+      <div class="right">RightTitle</div>
+    </div>
+    <div class="picadiff-content">
+      <div class="left">Left content you want do diff</div>
+      <div class="right">Right content you want do diff</div>
+    </div>
   </div>
-  <div class="picadiff-content">
-    <div class="left">Left content you want do diff</div>
-    <div class="right">Right content you want do diff</div>
-  </div>
-</div>
 
-<script>
-    $(".picadiff").picadiff();
-</script>
+
+  <script src="jquery.js"></script>
+  <script src="diff_match_patch.js"></script>
+  <script src="webfont.js"></script>
+  <script src="jquery.picadiff-0.7.1.min.js"></script> 
+  <script>
+      $(".picadiff").picadiff();
+  </script>
 ```
 
 ## Documentation
