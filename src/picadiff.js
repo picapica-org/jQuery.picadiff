@@ -2,9 +2,10 @@
   /**
    * @class Represents a single reference.
    */
-  var CompareData =  function(referenceData){
+  var CompareData =  function(referenceData, options){
     /* global DiffHandler */
     this.dmp =  new DiffHandler();
+    this.dmp.Diff_Timeout = options ? options.timeout || 0 : 0;
 
     for(var key in referenceData){
       this[key] = referenceData[key];
@@ -12,13 +13,6 @@
   };
 
   CompareData.prototype = {
-    /**
-     * initializes and sets diff timeout to infinit
-     */
-    initialize: function(data, options) {
-      this.dmp.Diff_Timeout = options ? options.timeout || 0 : 0;
-    },
-
     /**
      * Wordbased diff with
      * @return {Array}  EXPLAIN_PROTOCOL
@@ -67,10 +61,13 @@
 			var $this = $(this).addClass('picadiff');
 
       var settings = {
-        leftContainer   : '.left',
+        leftContainer     : '.left',
         rightContainer    : '.right',
-        titleContainer    : '.title',
+        titleContainer    : '.picadiff-title',
         contentContainer  : '.picadiff-content',
+        lineLength        : 40,
+        wrap              : false
+
 
       };
       // If options exist, lets merge them
@@ -86,10 +83,10 @@
         right   : settings.rightContent || $this.find(settings.contentContainer+' '+settings.rightContainer).text()
       };
 
-      var compareData = new CompareData(referenceData);
+      var compareData = new CompareData(referenceData, settings);
 
-      var lineLength = 40;
-      var html_texts = compareData.wrap ? compareData.getHtmlTextStrict(lineLength) :
+      var lineLength = settings.lineLength;
+      var html_texts = settings.wrap ? compareData.getHtmlTextStrict(lineLength) :
         compareData.getHtmlTexts(lineLength);
 
       var left = html_texts.source_html;
