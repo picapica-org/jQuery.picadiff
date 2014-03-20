@@ -4,7 +4,7 @@ jQuery.picadiff [![Build Status](https://travis-ci.org/picapica-net/jQuery.picad
 ## About
 A small widget for visualizing text reuse on two texts.
 
-![screenshot](https://dl.dropboxusercontent.com/u/1461704/diff-screenshot.jpg)
+![screenshot](https://s3-eu-west-1.amazonaws.com/diffvisualisationwidget.js/Bildschirmfoto+2014-03-20+um+09.59.55.png)
 
 ## Getting Started
 Download the [production version][min] or the [development version][max] and the [CSS file][css]. 
