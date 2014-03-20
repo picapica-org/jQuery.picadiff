@@ -33,6 +33,7 @@
       "url": "http://opensource.org/licenses/MIT"
     }
   ],
+  "demo": "http://picapica-net.github.io/jQuery.picadiff/usage",
   "dependencies": {
     "jquery": "~2.1.0",
     "google-diff-match-patch-js": "~1.0.0"
