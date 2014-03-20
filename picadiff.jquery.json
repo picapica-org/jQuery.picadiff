@@ -8,14 +8,14 @@
     "name": "picapica team",
     "url": "http://picapica.org"
   },
-  "maintainers": [
+  "maintainers":[
     {
       "name": "Jan Graßegger",
       "email": "jan@anycook.de",
       "url": "https://github.com/gesundkrank"
     },
     {
-      "Maximilian Michel",
+      "name": "Maximilian Michel",
       "url": "https://github.com/lemaxm"
     }
   ],
