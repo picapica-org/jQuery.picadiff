@@ -1,6 +1,6 @@
 {
   "name": "picadiff",
-  "version": "0.7.1",
+  "version": "0.7.2",
   "description": "Shows diff of two texts.",
   "keywords": [
     "jquery-plugin"

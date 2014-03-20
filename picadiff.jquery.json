@@ -2,19 +2,31 @@
   "name": "picadiff",
   "title": "picadiff",
   "description": "A small widget for visualizing text reuse on two texts.",
-  "version": "0.7.1",
+  "version": "0.7.2",
   "homepage": "https://github.com/picapica-net/jQuery.picadiff",
   "author": {
-    "name": "Jan Graßegger",
-    "url": "https://github.com/gesundkrank
+    "name": "picapica team",
+    "url": "http://picapica.org"
   },
+  "maintainers": [
+    {
+      "name": "Jan Graßegger",
+      "email": "jan@anycook.de",
+      "url": "https://github.com/gesundkrank"
+    },
+    {
+      "Maximilian Michel",
+      "url": "https://github.com/lemaxm"
+    }
+  ],
   "repository": {
     "type": "git",
     "url": "https://github.com/picapica-net/jQuery.picadiff"
   },
   "bugs": {
     "url" : "https://github.com/picapica-net/jQuery.picadiff/issues",
-    "email" : "jan.grassegger@picapica.org"},
+    "email" : "jan.grassegger@picapica.org"
+  },
   "licenses": [
     {
       "type": "MIT",
@@ -22,9 +34,13 @@
     }
   ],
   "dependencies": {
-    "jquery": "~2.1.0"
+    "jquery": "~2.1.0",
+    "google-diff-match-patch-js": "~1.0.0"
   },
   "keywords": [
-    "jquery-plugin"
+    "jquery-plugin",
+    "diff",
+    "text-reuse",
+    "text-alignment"
   ]
 }

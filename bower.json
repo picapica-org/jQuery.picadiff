@@ -1,6 +1,6 @@
 {
   "name": "picadiff",
-  "version": "0.7.1",
+  "version": "0.7.2",
   "dependencies": {
     "google-diff-match-patch-js": "~1.0.0"
   },

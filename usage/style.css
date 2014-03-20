@@ -1,7 +1,33 @@
 body{
-	margin: 30px;
+  margin: 30px;
 }
 
-.diffVisualisation{
-	width: 800px;
+.picadiff{
+  width: 800px;
+}
+
+#form{
+  width: 800px;
+  overflow: hidden;
+}
+.form{
+  margin: 50px 50px 10px;
+}
+
+.leftForm{
+  float: left;
+  margin-left: 20px;
+}
+
+.rightForm{
+  margin-left: 420px;
+}
+
+h2{
+  margin: 0;
+}
+
+#form input{
+  clear: both;
+  margin-left: 600px;
 }
