@@ -102,6 +102,10 @@ CSS
 An example can be found in ```/usage/index.html```
 
 ## Release History
+v0.7.2
+- updated demo
+- update package info
+
 v0.7.1
 - renamed title to .picadiff-title
 - added options for character wrapping and line length
