@@ -102,6 +102,9 @@ CSS
 An example can be found in ```/usage/index.html```
 
 ## Release History
+v0.7.3
+- fix jquery.plugin registration
+
 v0.7.2
 - updated demo
 - update package info

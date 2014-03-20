@@ -2,7 +2,7 @@
   "name": "picadiff",
   "title": "picadiff",
   "description": "A small widget for visualizing text reuse on two texts.",
-  "version": "0.7.2",
+  "version": "0.7.3",
   "homepage": "https://github.com/picapica-net/jQuery.picadiff",
   "author": {
     "name": "picapica team",
